@@ -38,6 +38,18 @@ class InitialGroups extends Seeder{
             'updateNews' => 1,
         ),
     ));
+	Sentry::createGroup(array(
+        'name'        => 'superAdmin',
+        'permissions' => array(
+            'createAdmin' => 1,
+            'updateAdmin' => 1,
+			'banAdmin' => 1,
+            'createProperty' => 1,
+			'updateProperty' => 1,
+			'createNews' => 1,
+            'updateNews' => 1,
+        ),
+    ));
 }
 catch (Cartalyst\Sentry\Groups\NameRequiredException $e)
 {
