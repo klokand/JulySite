@@ -11,11 +11,20 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'PageController@getIndex');
+Route::get('properties','PropertyController@listProperties');
+Route::get('createProperty','PropertyController@createProperty');
 
-Route::get('home', 'HomeController@index');
+Route::get('admin/login',['as'=>'login','uses'=>'UserController@getLogin']);
+Route::post('admin/login','UserController@postLogin');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::get('admin/logout',['as'=>'logout','uses'=>'UserController@Logout']);
+
+
+Route::get('createUser',['as'=>'createUser','uses'=>'UserController@getCreateUser']);
+Route::post('createUser','UserController@postCreateUser');
+
+
+Route::get('adminPanel', ['as'=>'adminPanel','middleware'=>'adminCheck','uses'=>'PageController@getAdminPanel']);
+
+

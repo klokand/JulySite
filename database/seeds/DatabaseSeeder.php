@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Cartalyst\Sentry\Facades\Laravel\Sentry as Sentry;
 
 class DatabaseSeeder extends Seeder {
 
@@ -14,7 +15,38 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('UserTableSeeder');
+		 $this->call('InitialGroups');
+		 $this->command->info('Group is created');
 	}
 
 }
+
+class InitialGroups extends Seeder{
+	public function run(){
+		try
+{
+    // Create the group
+   Sentry::createGroup(array(
+        'name'        => 'Admin',
+        'permissions' => array(
+            'createAdmin' => 0,
+            'updateAdmin' => 0,
+			'banAdmin' => 0,
+            'createProperty' => 1,
+			'updateProperty' => 1,
+			'createNews' => 1,
+            'updateNews' => 1,
+        ),
+    ));
+}
+catch (Cartalyst\Sentry\Groups\NameRequiredException $e)
+{
+    echo 'Name field is required';
+}
+catch (Cartalyst\Sentry\Groups\GroupExistsException $e)
+{
+    echo 'Group already exists';
+}
+}
+}
+

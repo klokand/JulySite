@@ -12,5 +12,15 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.styles([
+		'vendor/css/bootstrap.min.css',
+		'css/main.css'
+	],'public/output/final.css','resources/assets');
+	mix.scripts([
+		'vendor/js/jquery.min.js',
+		'vendor/js/bootstrap.min.js',
+		'vendor/js/dropzone.js',
+		'js/main.js'
+	],'public/output/final.js','resources/assets');
+	mix.copy('resources/assets/img','public/img');
 });

@@ -1,0 +1,1 @@
+<div class="footer">© 2015 Lucky Investment, Inc.</div>

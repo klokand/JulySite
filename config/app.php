@@ -197,6 +197,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Str'		=> 'Illuminate\Support\Str',
 		'Sentry' 	=> 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Form'		=> 'Illuminate\Html\FormFacade',
+		'HTML'		=> 'Illuminate\Html\HtmlFacade',
 
 	],
 
