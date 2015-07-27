@@ -51,7 +51,7 @@ class UserController extends Controller {
 {
     echo 'Group was not found.';
 }
-			return Redirect::route('adminPanel')
+			return Redirect::route('login')
 		    	->with('success','You\'ve signed up and logged in successfully!');
 		}else{
 			return Redirect::route('createUser')
