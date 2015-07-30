@@ -38,15 +38,8 @@ d.trigger("activate.bs.scrollspy")},b.prototype.clear=function(){a(this.selector
             $('.carousel').carousel({
                 interval: 3000 //TIME IN MILLI SECONDS
             })
-            // PRETTYPHOTO FUNCTION 
-
-            $("a.preview").prettyPhoto({
-                social_tools: false
-            });
 
        
-
-
             /*====================================
                WRITE YOUR SCRIPTS BELOW 
            ======================================*/
