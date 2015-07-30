@@ -11,7 +11,7 @@
     <title>Luck Country Property Investments</title>
     <!-- CUSTOM STYLE CSS -->
     <link href="/output/final.css" rel="stylesheet" />    
-   
+   <link rel="icon" type="image/png" href="favicon.ico">
 
 </head>
 <body >
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="/img/1-3.jpg" alt="" />
+                            <img src="/img/1-3.JPG" alt="" />
                             <div class="carousel-caption ">
                                 <h4 class="back-light">Aenean faucibus luctus enim. Duis quis sem risu suspend lacinia elementum nunc.</h4>
                             </div>
