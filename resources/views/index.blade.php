@@ -10,9 +10,8 @@
         <![endif]-->
     <title>Luck Country Property Investments</title>
     <!-- CUSTOM STYLE CSS -->
-    <link href="/output/final.css" rel="stylesheet" />    
-   <link rel="icon" type="image/png" href="favicon.ico">
-
+    <link href="/output/final.css" rel="stylesheet" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body >
     <!--NAVBAR Start-->
