@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('test1',function(){
+	return view('test');
+});
 
 Route::get('/', 'PageController@getIndex');
 Route::get('properties','PropertyController@listProperties');

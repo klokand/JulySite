@@ -14,13 +14,15 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.styles([
 		'vendor/css/bootstrap.min.css',
+		'vendor/css/font-awesome.min.css',
 		'css/main.css'
 	],'public/output/final.css','resources/assets');
 	mix.scripts([
 		'vendor/js/jquery.min.js',
 		'vendor/js/bootstrap.min.js',
-		'vendor/js/dropzone.js',
+		'vendor/js/jquery.dropotron.min.js',
 		'js/main.js'
 	],'public/output/final.js','resources/assets');
 	mix.copy('resources/assets/img','public/img');
+	mix.copy('resources/assets/fonts','public/fonts')
 });
