@@ -10,12 +10,18 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('test1',function(){
-	return view('test');
-});
-
 Route::get('/', 'PageController@getIndex');
-Route::get('properties','PropertyController@listProperties');
+Route::get('aboutUs', 'PageController@getAboutUs');
+Route::get('properties', 'PageController@getProperties');
+Route::get('news', 'PageController@getNews');
+Route::get('contactUs', 'PageController@getContactUs');
+
+
+
+
+
+
+//Route::get('properties','PropertyController@listProperties');
 Route::get('createProperty','PropertyController@createProperty');
 
 Route::get('admin/login',['as'=>'login','uses'=>'UserController@getLogin']);
