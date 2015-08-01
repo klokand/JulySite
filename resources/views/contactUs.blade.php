@@ -4,6 +4,9 @@
 <section id="contactUs">
 	<div class="container">
 		<div class="row">
+			<h1 class="page-header">
+                Contact Us
+            </h1>
 			<div id="methods" class="col-xs-12 col-sm-12 col-md-6">
 			<div class="address">
 				<div class="label label-default col-xs-12 col-sm-12 col-md-12">
@@ -49,6 +52,5 @@
 			</div>
 		</div>
 	</div>
-	
 </section>
 @endsection

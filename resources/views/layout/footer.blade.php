@@ -8,7 +8,7 @@
                                 LUCKY COUNTRY PROPERTY INVESTMENTS PTY LTD.(ABN:38 605 613 009)
 								is an Australian Proprietary Company...
                             </p>
-                <a href="#" >read more</a>
+                <a href="{{url('aboutUs')}}" >read more</a>
                 </div>
                <div class="col-md-4 col-md-offset-2">
                    <h4> <strong>OUR LOCATION</strong> </h4>
@@ -17,7 +17,7 @@
                                NORTH BEACH  <br />
                                West Australia 6020
                             </p>
-                    <a href="#" class="btn btn-primary" >SEND QUERY</a>
+                    <a href="{{url('contactUs')}}" class="btn btn-primary" >SEND QUERY</a>
                 </div>
              </div>
 			 <div class="row copy-right"><span>©LUCKY COUNTRY PROPERTY INVESTMENTS PTY LTD.</span></div>

@@ -227,12 +227,10 @@ height: auto;
 
 /*CONTACT STYLES*/
 #contactUs{
-	padding-top:90px;
+	padding-top:50px;
 	padding-bottom:30px;
 }
-#contactUs #methods{
-	margin-top:70px;
-}
+
 #contactUs #methods .address p{
 	font-size:15px;
 }
@@ -273,7 +271,7 @@ height: auto;
 }
 
 #contactUs #contactForm{
-	margin-top:80px;
+	margin-top:10px;
 	padding-top:20px;
 	padding-bottom:20px;
 	background-color:lightblue;
