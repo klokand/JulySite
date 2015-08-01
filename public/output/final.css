@@ -226,7 +226,62 @@ height: auto;
 }
 
 /*CONTACT STYLES*/
+#contactUs{
+	padding-top:90px;
+	padding-bottom:30px;
+}
+#contactUs #methods{
+	margin-top:70px;
+}
+#contactUs #methods .address p{
+	font-size:15px;
+}
+#contactUs #methods .address h4,
+#contactUs #methods .address p,
+#contactUs #methods .phone h4,
+#contactUs #methods .phone p,
+#contactUs #methods .email h4,
+#contactUs #methods .email p{
+	display:inline;
+}
+#contactUs #methods .label{
+	white-space: normal;
+	margin-top:10px;
+}
+#contactUs #methods .address div,
+#contactUs #methods .phone div,
+#contactUs #methods .email div{
+	text-align:left;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+#contactUs #methods .phone p{
+	font-size: xx-large;
+	margin-left: 20px;
+	color: white;
+}
+#contactUs #methods .email p{
+	font-size: 15px;
+	margin-left: 20px;
+	color: white;
+}
 
+#contactUs #methods img{
+	margin:0 auto;
+	display:block;
+	border: 2px solid #a1a1a1;
+}
+
+#contactUs #contactForm{
+	margin-top:80px;
+	padding-top:20px;
+	padding-bottom:20px;
+	background-color:lightblue;
+	color:white;
+}
+#contactUs #contactForm h2{
+	text-align:center;
+}
 
 .cnt {
 width: 100%;
