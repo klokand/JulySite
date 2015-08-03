@@ -161,6 +161,30 @@ height: auto;
 #footer-sec .copy-right{
 	text-align:center;
 }
+/*properties List*/
+#properties .property{
+	margin-top:20px;
+	margin-bottom:10px;
+	position:relative;
+}
+#properties .property h4{
+	background-color: rgb(83, 83, 150);
+	color: white;
+	text-align: center;
+	margin-top: 0px;
+	line-height: 46px;
+}
+#properties .property .list-detail-icon{
+	font-size: 24px;
+	color: #67676D;
+	margin-left:5px;
+}
+.sold:after {
+    content: url(/img/sold.png);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 /*News styles*/
 #newsList{
 	padding-top 50px;

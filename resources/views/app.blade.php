@@ -14,10 +14,11 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body >
+
 @include('layout.nav')
 @yield('content')  
 @include('layout.footer')  
-   
+
 
 
 <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->

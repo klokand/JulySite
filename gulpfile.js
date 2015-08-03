@@ -15,6 +15,7 @@ elixir(function(mix) {
     mix.styles([
 		'vendor/css/bootstrap.min.css',
 		'vendor/css/font-awesome.min.css',
+		'vendor/css/iconmoon.css',
 		'css/main.css'
 	],'public/output/final.css','resources/assets');
 	mix.scripts([
