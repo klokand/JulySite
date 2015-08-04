@@ -16,12 +16,15 @@ elixir(function(mix) {
 		'vendor/css/bootstrap.min.css',
 		'vendor/css/font-awesome.min.css',
 		'vendor/css/iconmoon.css',
+		'vendor/css/jquery.tosrus.all.css',
 		'css/main.css'
 	],'public/output/final.css','resources/assets');
 	mix.scripts([
 		'vendor/js/jquery.min.js',
 		'vendor/js/bootstrap.min.js',
 		'vendor/js/jquery.dropotron.min.js',
+		'vendor/js/jquery.tosrus.min.all.js',
+		'vendor/js/hammer.min.js',
 		'js/main.js'
 	],'public/output/final.js','resources/assets');
 	mix.copy('resources/assets/img','public/img');

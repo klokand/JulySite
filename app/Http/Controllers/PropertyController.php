@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PropertyController extends Controller {
 
 	public function getPropertyDetail($id){
-		return 'this is propertyDetail';
+		return view('property');
 	}
 	public function listProperties(){
 		return 'there are all the properties';

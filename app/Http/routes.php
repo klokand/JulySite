@@ -15,6 +15,7 @@ Route::get('aboutUs', 'PageController@getAboutUs');
 Route::get('properties', 'PageController@getProperties');
 Route::get('news', 'PageController@getNews');
 Route::get('contactUs', 'PageController@getContactUs');
+Route::get('property/{id}','PropertyController@getPropertyDetail');
 
 
 

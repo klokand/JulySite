@@ -185,6 +185,38 @@ height: auto;
     left: 0;
     top: 0;
 }
+/*property*/
+#property .page-images-slider img{
+		width: 560px;
+		height: 400px;
+}
+
+@media screen and (max-width: 770px){
+	#property .page-images-slider img{
+		width: 118px;
+		height: 148px;
+}
+}
+#property #property-detail .list-detail-icon{
+	font-size: 24px;
+	color: #67676D;
+	margin-left:5px;
+}
+#property #property-detail .description{
+	border-color: rgb(209, 48, 48);
+	border-top-width: 5px;
+	border-top-style: outset;
+	padding-top: 20px;
+}
+#property #property-detail .description,
+#property #property-detail .feature{
+	font-family: Museo-Sans-300,Helvetica,arial,sans-serif;
+	color: #333f48;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+
 /*News styles*/
 #newsList{
 	padding-top 50px;
