@@ -31,8 +31,8 @@ Route::post('admin/login','UserController@postLogin');
 Route::get('admin/logout',['as'=>'logout','uses'=>'UserController@Logout']);
 
 
-Route::get('createUser',['as'=>'createUser','uses'=>'UserController@getCreateUser']);
-Route::post('createUser','UserController@postCreateUser');
+Route::get('createUser',['as'=>'createUser','middleware'=>'superAdminCheck','uses'=>'UserController@getCreateUser']);
+Route::post('createUser',['middleware'=>'superAdminCheck','uses'=>'UserController@postCreateUser']);
 
 
 Route::get('adminPanel', ['as'=>'adminPanel','middleware'=>'adminCheck','uses'=>'PageController@getAdminPanel']);

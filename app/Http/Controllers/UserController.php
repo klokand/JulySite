@@ -13,7 +13,7 @@ use Redirect;
 class UserController extends Controller {
 
 	public function getCreateUser(){
-		return view('admin.createUser');
+		return view('admin.createUser')->with('pageName','Add Admin');
 	}
 	
 	public function getLogin(){
@@ -51,8 +51,8 @@ class UserController extends Controller {
 {
     echo 'Group was not found.';
 }
-			return Redirect::route('login')
-		    	->with('success','You\'ve signed up and logged in successfully!');
+			return Redirect::route('adminPanel')
+		    	->with('success','New Admin has been created successfully!');
 		}else{
 			return Redirect::route('createUser')
 				->withInput(Input::except('password','re_password'))

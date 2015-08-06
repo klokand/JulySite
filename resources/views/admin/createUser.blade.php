@@ -1,7 +1,6 @@
-@extends('app')
+@extends('admin.layout.admin')
 @section('content')
-<div class="container">
-<h1>Create User form</h1>
+ <div class="row">
 {!!Form::open(['url'=>'createUser','method'=>'post'])!!}
 <div class="form-group">
 	<label for="first_name">First Name:</label>

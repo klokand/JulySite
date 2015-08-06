@@ -19,6 +19,15 @@ elixir(function(mix) {
 		'vendor/css/jquery.tosrus.all.css',
 		'css/main.css'
 	],'public/output/final.css','resources/assets');
+	mix.styles([
+		'vendor/css/bootstrap.min.css',
+		'vendor/css/metisMenu.css',
+		'vendor/css/morris.css',
+		'vendor/css/font-awesome.min.css',
+		'vendor/css/sb-admin-2.css',
+		'vendor/css/timeline.css',
+		'css/back-end.css'
+	],'public/output/back.css','resources/assets');
 	mix.scripts([
 		'vendor/js/jquery.min.js',
 		'vendor/js/bootstrap.min.js',
@@ -27,6 +36,14 @@ elixir(function(mix) {
 		'vendor/js/hammer.min.js',
 		'js/main.js'
 	],'public/output/final.js','resources/assets');
+	mix.scripts([
+		'vendor/js/jquery.min.js',
+		'vendor/js/bootstrap.min.js',
+		'vendor/js/jquery.dropotron.min.js',
+		'vendor/js/metisMenu.js',
+		'vendor/js/sb-admin-2.js',
+		'js/back-end.js'
+	],'public/output/back.js','resources/assets');
 	mix.copy('resources/assets/img','public/img');
 	mix.copy('resources/assets/fonts','public/fonts')
 });

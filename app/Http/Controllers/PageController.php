@@ -24,11 +24,8 @@ class PageController extends Controller {
 		return view('contactUs');
 	}
 	
-	
 	public function getAdminPanel(){
-	$user=Sentry::getUser();
-	$admin = Sentry::findGroupByName('superAdmin');
-	return view('admin.adminIndex')->with(['user'=>$user,'admin'=>$admin]);
+		return view('admin.adminIndex')->with('pageName','Dashboard');
 	}
 	
 }
