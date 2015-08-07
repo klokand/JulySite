@@ -64,10 +64,10 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i>Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class="fa fa-plus-circle fa-fw"></i>Add User</a>
+                                    <a href="{{url('createUser')}}"><i class="fa fa-plus-circle fa-fw"></i>Add User</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class ="fa fa-pencil fa-fw"></i>Update Users</a>
+                                    <a href="{{url('adminList')}}"><i class ="fa fa-pencil fa-fw"></i>Update Users</a>
                                 </li>
                             </ul>
                         </li>

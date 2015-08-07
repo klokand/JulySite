@@ -51,7 +51,7 @@ class UserController extends Controller {
 {
     echo 'Group was not found.';
 }
-			return Redirect::route('adminPanel')
+			return Redirect::route('listAdmin')
 		    	->with('success','New Admin has been created successfully!');
 		}else{
 			return Redirect::route('createUser')
@@ -101,5 +101,31 @@ class UserController extends Controller {
 		Sentry::logout();
 		return Redirect::route('login')
         ->with('success','You\'ve successfully logged out!');
+	}
+	
+	public function getAdminList(){
+		$users = Sentry::findAllUsers();
+		$AdminList="";
+		$i=0;
+		foreach($users as $user){
+			$link = url('updateAdmin/'.$user->id);
+			if($user->activated==1){
+				$activeted ="Yes";
+			}else{
+				$activated = "No";
+			}
+			$rowData = "<td>".$user->id."</td><td>".$user->email."</td><td>".$user->first_name."</td><td>".$user->last_name."</td><td>".$activeted."</td><td>".$user->created_at."</td><td>".$user->last_login."</td><td><a href=\"".$link."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
+			if($i%2===0){
+				$rowOutpub = "<tr class=\"even\">".$rowData."</tr>";
+			}else{
+				$rowOutput = "<tr class=\"odd\">".$rowData."</tr>";
+			}
+			$AdminList = $AdminList.$rowOutpub;
+		}
+		return view('admin.adminList')->with(['pageName'=>'All Administrators','AdminList'=>$AdminList]);
+	}
+	
+	public function getUpdateAdmin($id){
+		return $id;
 	}
 }
