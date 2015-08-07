@@ -15,7 +15,15 @@ use Redirect;
 class PropertyController extends Controller {
 
 	public function getPropertyDetail($id){
-		return view('property');
+		$property = Property::find($id);
+		if ($property!=null){
+			$images = $property->propertyImages;
+			return view('propertyDetail')->with('images',$images);
+			//return view('property');
+		}else{
+			return 'no property fund';
+		}
+		
 	}
 	public function listProperties(){
 		return view('admin.propertyList')->with(['pageName'=>'Property List']);
