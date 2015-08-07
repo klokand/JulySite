@@ -23,7 +23,12 @@ Route::get('property/{id}','PropertyController@getPropertyDetail');
 
 
 //Route::get('properties','PropertyController@listProperties');
-Route::get('createProperty','PropertyController@createProperty');
+Route::get('createProperty',['middleware'=>'adminCheck','uses'=>'PropertyController@createProperty']);
+Route::post('createProperty',['as'=>'createProperty','middleware'=>'adminCheck','uses'=>'PropertyController@PostCreateProperty']);
+
+Route::post('property/image/upload',['middleware'=>'adminCheck','uses'=>'PropertyController@uploadPropertyImage']);	
+
+Route::get('propertyList',['as'=>'propertyList','middleware'=>'adminCheck','uses'=>'PropertyController@listProperties']);
 
 Route::get('admin/login',['as'=>'login','uses'=>'UserController@getLogin']);
 Route::post('admin/login','UserController@postLogin');
@@ -38,5 +43,7 @@ Route::get('adminList',['as'=>'listAdmin','middleware'=>'superAdminCheck','uses'
 Route::get('updateAdmin/{id}',['middleware'=>'superAdminCheck','uses'=>'UserController@getUpdateAdmin']);
 
 Route::get('adminPanel', ['as'=>'adminPanel','middleware'=>'adminCheck','uses'=>'PageController@getAdminPanel']);
+
+
 
 

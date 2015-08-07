@@ -17,6 +17,7 @@
 											<th>Email</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
+											<th>Type</th>
                                             <th>Activated</th>
 											<th>Created Date</th>
 											<th>Last Login</th>

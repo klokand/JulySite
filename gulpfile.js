@@ -25,15 +25,15 @@ elixir(function(mix) {
 		'vendor/css/morris.css',
 		'vendor/css/font-awesome.min.css',
 		'vendor/css/sb-admin-2.css',
-		'vendor/css/timeline.css',
 		'vendor/css/jquery.dataTables.min.css',
 		'vendor/css/dataTables.responsive.css',
+		'vendor/css/basic.min.css',
+		'vendor/css/dropzone.min.css',
 		'css/back-end.css'
 	],'public/output/back.css','resources/assets');
 	mix.scripts([
 		'vendor/js/jquery.min.js',
 		'vendor/js/bootstrap.min.js',
-		'vendor/js/jquery.dropotron.min.js',
 		'vendor/js/jquery.tosrus.min.all.js',
 		'vendor/js/hammer.min.js',
 		'js/main.js'
@@ -41,11 +41,11 @@ elixir(function(mix) {
 	mix.scripts([
 		'vendor/js/jquery.min.js',
 		'vendor/js/bootstrap.min.js',
-		'vendor/js/jquery.dropotron.min.js',
 		'vendor/js/metisMenu.js',
 		'vendor/js/sb-admin-2.js',
 		'vendor/js/jquery.dataTables.min.js',
 		'vendor/js/dataTables.responsive.js',
+		'vendor/js/dropzone.js',
 		'js/back-end.js'
 	],'public/output/back.js','resources/assets');
 	mix.copy('resources/assets/img','public/img');

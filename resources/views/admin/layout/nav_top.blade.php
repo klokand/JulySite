@@ -9,7 +9,7 @@
                         </li>
 						<li class="divider"></li>
 					@endif
-                        <li><a href="#"><i class="fa fa-home fa-fw"></i> Add Property</a>
+                        <li><a href="{{url('createProperty')}}"><i class="fa fa-home fa-fw"></i> Add Property</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="#"><i class="fa fa-globe fa-fw"></i> Add News</a>

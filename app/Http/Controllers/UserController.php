@@ -108,13 +108,14 @@ class UserController extends Controller {
 		$AdminList="";
 		$i=0;
 		foreach($users as $user){
+			$group = $user->getGroups();
 			$link = url('updateAdmin/'.$user->id);
 			if($user->activated==1){
 				$activeted ="Yes";
 			}else{
 				$activated = "No";
 			}
-			$rowData = "<td>".$user->id."</td><td>".$user->email."</td><td>".$user->first_name."</td><td>".$user->last_name."</td><td>".$activeted."</td><td>".$user->created_at."</td><td>".$user->last_login."</td><td><a href=\"".$link."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
+			$rowData = "<td>".$user->id."</td><td>".$user->email."</td><td>".$user->first_name."</td><td>".$user->last_name."</td><td>".$group[0]->name."</td><td>".$activeted."</td><td>".$user->created_at."</td><td>".$user->last_login."</td><td><a href=\"".$link."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
 			if($i%2===0){
 				$rowOutpub = "<tr class=\"even\">".$rowData."</tr>";
 			}else{
@@ -126,6 +127,15 @@ class UserController extends Controller {
 	}
 	
 	public function getUpdateAdmin($id){
-		return $id;
+		try
+	{
+    // Find the user using the user id
+    $user = Sentry::findUserByID($id);
+	}
+	catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+	{
+    echo 'User was not found.';
+	}
+		return view('admin.updateAdmin')->with(['user'=>$user,'pageName'=>'Update Admin']);
 	}
 }

@@ -199,7 +199,7 @@ return [
 		'Sentry' 	=> 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Form'		=> 'Illuminate\Html\FormFacade',
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',
-
+		'Image'     => 'Intervention\Image\Facades\Image',
 	],
 
 ];

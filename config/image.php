@@ -14,5 +14,11 @@ return array(
 	'thumb_width'=>320,
 	
 	//height of the resized thumbnail
-	'thumb_height'=>240
+	'thumb_height'=>240,
+	
+	
+	//property image
+	'property_image'=>'uploads/properties',
+	'property_image_width'=>800,
+	'property_image_height'=>600
 );
