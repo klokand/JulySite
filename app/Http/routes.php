@@ -12,7 +12,7 @@
 */
 Route::get('/', 'PageController@getIndex');
 Route::get('aboutUs', 'PageController@getAboutUs');
-Route::get('properties', 'PageController@getProperties');
+Route::get('properties', 'PropertyController@listProperties');
 Route::get('news', 'PageController@getNews');
 Route::get('contactUs', 'PageController@getContactUs');
 Route::get('property/{id}','PropertyController@getPropertyDetail');
@@ -22,7 +22,6 @@ Route::get('property/{id}','PropertyController@getPropertyDetail');
 
 
 
-//Route::get('properties','PropertyController@listProperties');
 Route::get('createProperty',['middleware'=>'adminCheck','uses'=>'PropertyController@createProperty']);
 Route::post('createProperty',['as'=>'createProperty','middleware'=>'adminCheck','uses'=>'PropertyController@PostCreateProperty']);
 

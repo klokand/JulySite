@@ -17,8 +17,7 @@ class PropertyController extends Controller {
 	public function getPropertyDetail($id){
 		$property = Property::find($id);
 		if ($property!=null){
-			$images = $property->propertyImages;
-			return view('propertyDetail')->with('images',$images);
+			return view('propertyDetail')->with('property',$property);
 			//return view('property');
 		}else{
 			return 'no property fund';
@@ -26,7 +25,8 @@ class PropertyController extends Controller {
 		
 	}
 	public function listProperties(){
-		return view('admin.propertyList')->with(['pageName'=>'Property List']);
+		$properties = Property::paginate(4);
+		return view('properties')->with('properties',$properties);
 	}
 	public function createProperty(){
 		$id= Input::get('createUserId').time();
