@@ -29,6 +29,7 @@ elixir(function(mix) {
 		'vendor/css/dataTables.responsive.css',
 		'vendor/css/basic.min.css',
 		'vendor/css/dropzone.min.css',
+		'vendor/css/jquery-te-1.4.0.css',
 		'css/back-end.css'
 	],'public/output/back.css','resources/assets');
 	mix.scripts([
@@ -46,8 +47,9 @@ elixir(function(mix) {
 		'vendor/js/jquery.dataTables.min.js',
 		'vendor/js/dataTables.responsive.js',
 		'vendor/js/dropzone.js',
+		'vendor/js/jquery-te-1.4.0.min.js',
 		'js/back-end.js'
 	],'public/output/back.js','resources/assets');
 	mix.copy('resources/assets/img','public/img');
-	mix.copy('resources/assets/fonts','public/fonts')
+	mix.copy('resources/assets/fonts','public/fonts');
 });

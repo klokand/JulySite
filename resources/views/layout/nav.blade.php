@@ -18,17 +18,17 @@
                     <li class="dropdown"><a href="{{url('properties')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Land <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="{{url('properties')}}">Redevelopment</a></li>
-						<li><a href="{{url('properties')}}">Home Land Package</a></li>
+						<li><a href="{{url('properties/Home Land Package')}}">Home Land Package</a></li>
 					</ul>
 				</li>
 				<li><a href="{{url('properties')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">House <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="{{url('properties')}}">Display Home</a></li>
-						<li><a href="{{url('properties')}}">Off-the-plan</a></li>
-						<li><a href="{{url('properties')}}">Completed Units</a></li>
+						<li><a href="{{url('properties/Display Home')}}">Display Home</a></li>
+						<li><a href="{{url('properties/Off-the-plan')}}">Off-the-plan</a></li>
+						<li><a href="{{url('properties/Completed Units')}}">Completed Units</a></li>
 					</ul>
 				</li>
-				<li><a href="{{url('properties')}}">Sold</a></li>
+				<li><a href="{{url('properties/Sold')}}">Sold</a></li>
 				<li><a href="{{url('news')}}">News</a></li>
 				<li><a href="{{url('contactUs')}}">Contact Us</a></li>
                 </ul>

@@ -12,7 +12,7 @@
                                     <a href="{{url('createProperty')}}"><i class="fa fa-plus-circle fa-fw"></i>Add Property</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class ="fa fa-pencil fa-fw"></i>Update Properties</a>
+                                    <a href="{{url('admin/propertyList')}}"><i class ="fa fa-pencil fa-fw"></i>Update Properties</a>
                                 </li>
 								<li>
                                     <a href="#"><i class ="fa fa-check-square fa-fw"></i>Sold Properties</a>

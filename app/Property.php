@@ -12,7 +12,7 @@ class Property extends Model {
 	
 	public static $create_rules = array(
 		'name'	        => 'required|min:2',
-		'property_type'	=> 'required|in:house,unit,land,apartment,town house',
+		'property_type'	=> 'required|in:House,Unit,Land,Apartment,Town House,Home Land Package,Display Home,Off-the-plan,Completed Units',
 		'address'		=> 'required|min:2',
 		'price'		=> 'required|min:2',
 		'bedNo'	=> 'required|digits:1',
@@ -20,7 +20,8 @@ class Property extends Model {
 		'garageCarNo'	=> 'required|digits:1',
 		'landSize'	=> 'required|min:1',
 		'buildingSize'	=> 'required|min:1',
-		'description'	=> 'required|min:5',
+		'description' =>'required|min:2'
 	);
+	
 
 }

@@ -16,19 +16,16 @@ class CreatePropertiesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name')->default('');
-			$table->enum('type',['house','unit','land','apartment','town house']);
+			$table->enum('type',['House','Unit','Land','Apartment','Town House','Home Land Package','Display Home','Off-the-plan','Completed Units']);
 			$table->string('address')->default('');
 			$table->string('price')->default('');
-			$table->enum('state',['available','sold','underContract'])->default('available');
+			$table->enum('state',['step1','available','sold','underContract'])->default('step1');
 			$table->string('bedNo')->default('');
 			$table->string('bathNo')->default('');
 			$table->string('garageCarNo')->default('');
 			$table->string('landSize')->default('');
 			$table->string('buildingSize')->default('');
-			$table->string('floorPlan')->default('');
-			$table->text('summary')->default('');
 			$table->text('description')->default('');
-			$table->text('featureList')->default('');
 			$table->string('createUserId')->default('');
 			$table->string('coverImage')->default('property-default.jpg');
 			$table->timestamps();

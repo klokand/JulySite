@@ -3,11 +3,11 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
 use Input;
 use Validator;
 use File;
 use Response;
+use Request;
 use App\Property;
 use App\PropertyImage;
 use Redirect;
@@ -24,37 +24,46 @@ class PropertyController extends Controller {
 		}
 		
 	}
-	public function listProperties(){
-		$properties = Property::paginate(4);
-		return view('properties')->with('properties',$properties);
+	public function listProperties($type){
+		$results = Property::where('state', '=' , 'available')->get();
+		if($type=="Home Land Package"){
+			$results = Property::where('type','=','Home Land Package')->paginate(4);
+		}elseif($type=="Display Home"){
+			$results = Property::where('type','=','Display Home')->paginate(4);
+		}elseif($type=="Off-the-plan"){
+			$results = Property::where('type','=','Off-the-plan')->paginate(4);
+		}elseif($type=="Completed Units"){
+			$results = Property::where('type','=','Completed Units')->paginate(4);
+		}elseif($type=="Sold"){
+			$results = Property::where('state','=','sold')->paginate(4);
+		}
+		//$properties = Property::where('state', '=' , 'available')->paginate(4);
+		return view('properties')->with('properties',$results);
+	}
+	
+	public function listPropertiesTable(){
+		
+		
+		return view('admin.propertyList')->with(['pageName'=>'All the Properties','PropertiesList'=>'test']);
 	}
 	public function createProperty(){
-		$id= Input::get('createUserId').time();
-		return view('admin.createProperty')->with(['pageName'=>'Create Property','id'=>$id]);
+			$id= ''.time();
+		return view('admin.createProperty')->with(['pageName'=>'Create Property Step1/2','id'=>$id]);
 	}
+	
 	public function PostCreateProperty(){
 		$input = Input::all();
+		$id = Input::get('propertyId');
 		$validation = Validator::make($input,Property::$create_rules);
 		if($validation->passes()){
-			$property = Property::find(Input::get('propertyId'));
+			$property = Property::find($id);
 			if ($property!=null)// Property has been existed
 			{
-				$property->name = Input::get('name');
-				$property->type = Input::get('property_type');
-				$property->address = Input::get('address');
-				$property->price = Input::get('price');
-				$property->bedNo = Input::get('bedNo');
-				$property->bathNo = Input::get('bathNo');
-				$property->garageCarNo = Input::get('garageCarNo');
-				$property->landSize = Input::get('landSize');
-				$property->buildingSize = Input::get('landSize');
-				$property->floorPlan = Input::get('floorPlan');
-				$property->summary = Input::get('summary');
-				$property->description = Input::get('description');
-				$property->featureList = Input::get('featureList');
-				$property->createUserId= Input::get('createUserId');
-				$property->save();
-			
+				if($property->state=='step1'){
+					return view('admin.createPropertyImages')->with(['pageName'=>'Create Property Step2/2(Final)','id'=>$id]);
+				}else if($property->state=='available'){
+					return Redirect::route('propertiesTable');
+				}
 			}else{
 			Property::create(array(
 			'id'=>Input::get('propertyId'),
@@ -67,18 +76,15 @@ class PropertyController extends Controller {
 			'garageCarNo'=>Input::get('garageCarNo'),
 			'landSize'=>Input::get('landSize'),
 			'buildingSize'=>Input::get('landSize'),
-			'floorPlan'=>Input::get('floorPlan'),
-			'summary'=>Input::get('summary'),
-			'description'=>Input::get('description'),
-			'featureList'=>Input::get('featureList'),
+			'description'=>Input::get('descriptionHTML'),
 			'createUserId'=>Input::get('createUserId')
-        ));
+			));
+			return view('admin.createPropertyImages')->with(['pageName'=>'Create Property Step2/2(Final)','id'=>$id]);
 			}
-			return Redirect::route('propertyList');
-		}else{
-			return Redirect::route('createProperty')
-				->withInput(Input::except('password','re_password'))
-				->with('error',$validation->errors()->first());
+			}else{
+			$error = $validation->errors()->first();
+			$oldId = Input::get('propertyId');
+			return Redirect::action('PropertyController@createProperty')->withInput(Input::except('password','re_password'))->with(compact('error'));
 		}
 		
 	}
@@ -110,24 +116,22 @@ class PropertyController extends Controller {
 					'property_id'=>Input::get('propertyId'),
 					'image'=>$filename
 				));
-			}else{//the initial property image and set it as cover image
-				Property::create(array(
-					'id' => Input::get('propertyId'),
-					'coverImage'=>$filename
-				));
-				PropertyImage::create(array(
-					'property_id'=>Input::get('propertyId'),
-					'image'=>$filename
-				));
+				$property->coverImage =$filename;
+				$property->state = "available";
+				$property->save();
 			}
-        	return Response::json('success', 200);
+        	return Response::json(['success'=>200,'fileName'=>$filename]);
 			} else {
         	return Response::json('error', 400);
 		}
-
-
-
-        
+	}
+	
+	public function deletePropertyImage(){
+		if(Request::ajax()){
+		 $propertyImage = PropertyImage::where('image','=',Input::get("name"));
+		 $propertyImage->delete();
+		return Response::json(['success'=> 200,'message'=>Input::get("name")]); ;
+		}
 	}
 
 }
