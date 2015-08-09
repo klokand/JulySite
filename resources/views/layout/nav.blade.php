@@ -15,13 +15,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{url('/')}}">HOME</a></li>
                     <li><a href="{{url('aboutUs')}}">About Us</a></li>
-                    <li class="dropdown"><a href="{{url('properties')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Land <span class="caret"></span></a>
+                    <li class="dropdown"><a href="{{url('properties/All')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Land <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="{{url('properties')}}">Redevelopment</a></li>
+						<li><a href="{{url('properties/All')}}">Redevelopment</a></li>
 						<li><a href="{{url('properties/Home Land Package')}}">Home Land Package</a></li>
 					</ul>
 				</li>
-				<li><a href="{{url('properties')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">House <span class="caret"></span></a>
+				<li><a href="{{url('properties/All')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">House <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="{{url('properties/Display Home')}}">Display Home</a></li>
 						<li><a href="{{url('properties/Off-the-plan')}}">Off-the-plan</a></li>

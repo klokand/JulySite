@@ -36,6 +36,8 @@ class PropertyController extends Controller {
 			$results = Property::where('type','=','Completed Units')->paginate(4);
 		}elseif($type=="Sold"){
 			$results = Property::where('state','=','sold')->paginate(4);
+		}elseif($type=="All"){
+			$results = Property::paginate(4);
 		}
 		//$properties = Property::where('state', '=' , 'available')->paginate(4);
 		return view('properties')->with('properties',$results);
