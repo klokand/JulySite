@@ -9,7 +9,7 @@
                                     <i class="fa fa-home fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge">{{$propertyNumber}}</div>
                                     <div>Properties Number</div>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                     <i class="fa fa-check-square fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge">{{$soldPropertyNumber}}</div>
                                     <div>Sold Properties</div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                     <i class="fa fa-globe fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge">{{$newsNumber}}</div>
                                     <div>Total News number</div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge">{{$userNumber}}</div>
                                     <div>Administrator </div>
                                 </div>
                             </div>
