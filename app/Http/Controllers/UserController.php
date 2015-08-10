@@ -117,11 +117,11 @@ class UserController extends Controller {
 			}
 			$rowData = "<td>".$user->id."</td><td>".$user->email."</td><td>".$user->first_name."</td><td>".$user->last_name."</td><td>".$group[0]->name."</td><td>".$activeted."</td><td>".$user->created_at."</td><td>".$user->last_login."</td><td><a href=\"".$link."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
 			if($i%2===0){
-				$rowOutpub = "<tr class=\"even\">".$rowData."</tr>";
+				$rowOutput = "<tr class=\"even\">".$rowData."</tr>";
 			}else{
 				$rowOutput = "<tr class=\"odd\">".$rowData."</tr>";
 			}
-			$AdminList = $AdminList.$rowOutpub;
+			$AdminList = $AdminList.$rowOutput;
 		}
 		return view('admin.adminList')->with(['pageName'=>'All Administrators','AdminList'=>$AdminList]);
 	}

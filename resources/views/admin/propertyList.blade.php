@@ -20,6 +20,7 @@
 											<th>state</th>
 											<th>price</th>
                                             <th>created</th>
+											<th>update</th>
                                         </tr>
                                     </thead>
                                     <tbody>

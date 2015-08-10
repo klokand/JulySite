@@ -44,9 +44,21 @@ class PropertyController extends Controller {
 	}
 	
 	public function listPropertiesTable(){
+		$properties = Property::all();
+		$PropertiesList ="";
+		$i=0;
+		foreach($properties as $property){
+			$link = url('updateProperty/'.$property->id);
+			$rowData = "<td>".$property->id."</td><td>".$property->name."</td><td>".$property->type."</td><td>".$property->address."</td><td>".$property->state."</td><td>".$property->price."</td><td>".$property->created_at."</td><td><a href=\"".$link."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
+		}
+		if($i%2===0){
+				$rowOutput = "<tr class=\"even\">".$rowData."</tr>";
+			}else{
+				$rowOutput = "<tr class=\"odd\">".$rowData."</tr>";
+			}
+			$PropertiesList = $PropertiesList.$rowOutput;
 		
-		
-		return view('admin.propertyList')->with(['pageName'=>'All the Properties','PropertiesList'=>'test']);
+		return view('admin.propertyList')->with(['pageName'=>'All the Properties','PropertiesList'=>$PropertiesList]);
 	}
 	public function createProperty(){
 			$id= ''.time();
