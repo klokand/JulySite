@@ -9,7 +9,12 @@
 			</h1>
 			@if(count($properties))
 				@foreach($properties as $property)
-					<div class="property col-md-6"> <a href="{{url('/')}}/property/{!!$property->id!!}">
+					@if($property->state=='sold')
+						<div class="property sold col-md-6">
+					@else
+						<div class="property col-md-6">
+					@endif
+					<a href="{{url('/')}}/property/{!!$property->id!!}">
 					<img class="img-responsive" src="/uploads/properties/{{$property->coverImage}}"/> </a>
 					<div class="detail">
 					<h4>{{$property->name}}</h4>

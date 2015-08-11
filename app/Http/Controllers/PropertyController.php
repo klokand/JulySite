@@ -37,7 +37,7 @@ class PropertyController extends Controller {
 		}elseif($type=="Sold"){
 			$results = Property::where('state','=','sold')->paginate(4);
 		}elseif($type=="All"){
-			$results = Property::paginate(4);
+			$results = Property::where('state','!=','unavailable')->paginate(4);
 		}
 		//$properties = Property::where('state', '=' , 'available')->paginate(4);
 		return view('properties')->with('properties',$results);
@@ -49,7 +49,7 @@ class PropertyController extends Controller {
 		$i=0;
 		foreach($properties as $property){
 			$i++;
-			$link = url('updateProperty/'.$property->id);
+			$link = url('property/edit/'.$property->id);
 			$rowData = "<td>".$property->id."</td><td>".$property->name."</td><td>".$property->type."</td><td>".$property->address."</td><td>".$property->state."</td><td>".$property->price."</td><td>".$property->created_at."</td><td><a href=\"".$link."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
 			if($i%2===0){
 				$rowOutput = "<tr class=\"even\">".$rowData."</tr>";
@@ -60,6 +60,41 @@ class PropertyController extends Controller {
 			
 		}
 		return view('admin.propertyList')->with(['pageName'=>'All the Properties','PropertiesList'=>$PropertiesList]);
+	}
+	
+	public function getUpdateProperty($id){
+		$property = Property::find($id);
+		$pageName ="Update Property Step2/2(Final)";
+		
+		return view('admin.editProperty')->with(compact('property','pageName'));
+	}
+	
+	public function postUpdateProperty(){
+		$input = Input::all();
+		$id = Input::get('propertyId');
+		$validation = Validator::make($input,Property::$create_rules);
+		if($validation->passes()){
+			$property = Property::find($id);
+			$property->name = Input::get('name');
+			$property->state = Input::get('state');
+			$property->type =Input::get('type');
+			$property->address =Input::get('address');
+			$property->price =Input::get('price');
+			$property->bedNo =Input::get('bedNo');
+			$property->bathNo =Input::get('bathNo');
+			$property->garageCarNo =Input::get('garageCarNo');
+			$property->landSize =Input::get('landSize');
+			$property->buildingSize =Input::get('buildingSize');
+			$property->description =Input::get('descriptionHTML');
+			$property->createUserId =Input::get('createUserId');
+			$property->save();
+			return view('admin.createPropertyImages')->with(['pageName'=>'Create Property Step2/2(Final)','id'=>$id]);
+			}else{
+			$error = $validation->errors()->first();
+			$oldId = Input::get('propertyId');
+			return Redirect::action('PropertyController@createProperty')->withInput(Input::except('password','re_password'))->with(compact('error'));
+		}
+		
 	}
 	public function createProperty(){
 			$id= ''.time();
@@ -83,18 +118,18 @@ class PropertyController extends Controller {
 			Property::create(array(
 			'id'=>Input::get('propertyId'),
             'name' => Input::get('name'),
-			'type'=>Input::get('property_type'),
+			'type'=>Input::get('type'),
 			'address'=>Input::get('address'),
 			'price'=>Input::get('price'),
 			'bedNo'=>Input::get('bedNo'),
 			'bathNo'=>Input::get('bathNo'),
 			'garageCarNo'=>Input::get('garageCarNo'),
 			'landSize'=>Input::get('landSize'),
-			'buildingSize'=>Input::get('landSize'),
+			'buildingSize'=>Input::get('buildingSize'),
 			'description'=>Input::get('descriptionHTML'),
 			'createUserId'=>Input::get('createUserId')
 			));
-			return view('admin.createPropertyImages')->with(['pageName'=>'Create Property Step2/2(Final)','id'=>$id]);
+			return view('admin.createPropertyImages')->with(['pageName'=>'Update Property Step2/2(Final)','id'=>$id]);
 			}
 			}else{
 			$error = $validation->errors()->first();
