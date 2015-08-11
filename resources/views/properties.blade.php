@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="row clearfix">
 			<h1 class="page-header">
-				Properties List
+				{{$pageName}}
 			</h1>
 			@if(count($properties))
 				@foreach($properties as $property)

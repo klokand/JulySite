@@ -23,5 +23,27 @@ class Property extends Model {
 		'description' =>'required|min:2'
 	);
 	
+	public function scopeAvailable($query){
+		return $query->where('state','=','available');
+	}
+	public function scopeHomeLand($query){
+		return $query->where('type','=','Home Land Package');
+	}
+	public function scopeDisplayhome($query){
+		return $query->where('type','=','Display Home');
+	}
+	public function scopeOffplan($query){
+		return $query->where('type','=','Off-the-plan');
+	}
+	public function scopeComplatedunits($query){
+		return $query->where('type','=','Completed Units');
+	}
+	public function scopeSold($query){
+		return $query->where('state','=','sold');
+	}
+	public function scopeTotal($query){
+		return $query->where('state','!=','unavailable');
+	}
+	
 
 }

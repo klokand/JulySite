@@ -25,22 +25,27 @@ class PropertyController extends Controller {
 		
 	}
 	public function listProperties($type){
-		$results = Property::where('state', '=' , 'available')->get();
 		if($type=="Home Land Package"){
-			$results = Property::where('type','=','Home Land Package')->paginate(4);
+			$pageName = 'Home Land Package';
+			$results = Property::available()->homeLand()->paginate(4);
 		}elseif($type=="Display Home"){
-			$results = Property::where('type','=','Display Home')->paginate(4);
+			$pageName = 'Display Home';
+			$results = Property::available()->displayhome()->paginate(4);
 		}elseif($type=="Off-the-plan"){
-			$results = Property::where('type','=','Off-the-plan')->paginate(4);
+			$pageName = 'Off-the-plan';
+			$results = Property::available()->offplan()->paginate(4);
 		}elseif($type=="Completed Units"){
-			$results = Property::where('type','=','Completed Units')->paginate(4);
+			$pageName = 'Completed Units';
+			$results = Property::available()->complatedunits()->paginate(4);
 		}elseif($type=="Sold"){
-			$results = Property::where('state','=','sold')->paginate(4);
+			$pageName = 'All the sold properties';
+			$results = Property::sold()->paginate(4);
 		}elseif($type=="All"){
-			$results = Property::where('state','!=','unavailable')->paginate(4);
+			$pageName = 'All the listed properties';
+			$results = Property::total()->paginate(4);
 		}
-		//$properties = Property::where('state', '=' , 'available')->paginate(4);
-		return view('properties')->with('properties',$results);
+		
+		return view('properties')->with(['properties'=>$results,'pageName'=>$pageName]);
 	}
 	
 	public function listPropertiesTable(){
