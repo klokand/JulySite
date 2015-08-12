@@ -49,7 +49,7 @@ class PropertyController extends Controller {
 	}
 	
 	public function listPropertiesTable(){
-		$properties = Property::all();
+		$properties = Property::unsold()->get();
 		$PropertiesList ="";
 		$i=0;
 		foreach($properties as $property){
@@ -64,14 +64,36 @@ class PropertyController extends Controller {
 			$PropertiesList = $PropertiesList.$rowOutput;
 			
 		}
-		return view('admin.propertyList')->with(['pageName'=>'All the Properties','PropertiesList'=>$PropertiesList]);
+		return view('admin.propertyList')->with(['pageName'=>'All Properties on the Market','PropertiesList'=>$PropertiesList]);
+	}
+	
+	public function listSoldPropertiesTable(){
+		$properties = Property::sold()->get();
+		$PropertiesList ="";
+		$i=0;
+		foreach($properties as $property){
+			$i++;
+			$link = url('property/edit/'.$property->id);
+			$rowData = "<td>".$property->id."</td><td>".$property->name."</td><td>".$property->type."</td><td>".$property->address."</td><td>".$property->state."</td><td>".$property->price."</td><td>".$property->created_at."</td><td><a href=\"".$link."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
+			if($i%2===0){
+				$rowOutput = "<tr class=\"even\">".$rowData."</tr>";
+			}else{
+				$rowOutput = "<tr class=\"odd\">".$rowData."</tr>";
+			}
+			$PropertiesList = $PropertiesList.$rowOutput;
+			
+		}
+		return view('admin.propertyList')->with(['pageName'=>'All Sold Properties','PropertiesList'=>$PropertiesList]);
 	}
 	
 	public function getUpdateProperty($id){
 		$property = Property::find($id);
-		$pageName ="Update Property Step2/2(Final)";
-		
-		return view('admin.editProperty')->with(compact('property','pageName'));
+		if($property->state=='sold'){
+			return Redirect::route('propertiesSoldTable');
+		}else{
+			$pageName ="Update Property Step1/2(Final)";
+			return view('admin.editProperty')->with(compact('property','pageName'));
+		}
 	}
 	
 	public function postUpdateProperty(){
@@ -158,12 +180,13 @@ class PropertyController extends Controller {
 
 		$file = Input::file('file');
 		$extension = $file->getClientOriginalExtension();
-        $directory = \Config::get('image.upload_folder');
+       // $directory = \Config::get('image.upload_folder');
         $filename = sha1(time().time()).".{$extension}";
 		$upload_success=\Image::make($file)->resize(\Config::get('image.property_image_width'),\Config::get('image.property_image_height'))->save(\Config::get('image.property_image').'/'.$filename);
+		$upload_thumb_success=\Image::make($file)->resize(\Config::get('image.thumb_width'),\Config::get('image.thumb_height'))->save(\Config::get('image.thumb_folder').'/'.$filename);
 		
 		//$upload_success=$file->move($directory, $filename);
-		if( $upload_success ) {
+		if( $upload_success and $upload_thumb_success ) {
 			$property = Property::find(Input::get('propertyId'));
 			if ($property!=null)//not the first property images
 			{
@@ -186,6 +209,30 @@ class PropertyController extends Controller {
 		 $propertyImage = PropertyImage::where('image','=',Input::get("name"));
 		 $propertyImage->delete();
 		return Response::json(['success'=> 200,'message'=>Input::get("name")]); ;
+		}
+	}
+	
+	public function preloadPropertyImage($id){
+		$images = PropertyImage::where('property_id','=',$id)->get();
+		 $directory = \Config::get('image.property_image');
+		$results =array();
+		foreach($images as $image){
+			$result['name']=$image->image;
+			$result['size']=filesize($directory.'/'.$image->image);
+			$results[]=$result;
+		}
+		return Response::json(['success'=>200,'results'=>$results]);
+	}
+
+	public function setCoverImage(){
+		if(Request::ajax()){
+		$propertyImage = PropertyImage::where('image','=',Input::get("name"))->first();
+		$property = Property::where('id','=',$propertyImage->property_id)->first();
+		$oldImage = $property->coverImage;
+		$property->coverImage = Input::get("name");
+		$property->save();
+		$message = $property->id."cover image changed from".$oldImage." to ".$property->coverImage;
+		return Response::json(['success'=>200,'message'=>$message]);
 		}
 	}
 

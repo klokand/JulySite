@@ -11,10 +11,10 @@ return array(
 	'thumb_folder'=>'uploads/thumbs',
 	
 	//width of the resized thumbnail
-	'thumb_width'=>320,
+	'thumb_width'=>120,
 	
 	//height of the resized thumbnail
-	'thumb_height'=>240,
+	'thumb_height'=>120,
 	
 	
 	//property image

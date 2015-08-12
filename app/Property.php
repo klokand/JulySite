@@ -44,6 +44,10 @@ class Property extends Model {
 	public function scopeTotal($query){
 		return $query->where('state','!=','unavailable');
 	}
+	public function scopeUnsold($query){
+		return $query->where('state','!=','sold');
+	}
+
 	
 
 }

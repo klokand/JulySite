@@ -27,7 +27,11 @@ Route::get('createProperty',['as'=>'propertyStep1','middleware'=>'adminCheck','u
 Route::post('createProperty',['middleware'=>'adminCheck','uses'=>'PropertyController@PostCreateProperty']);	
 
 Route::post('property/image/upload',['middleware'=>'adminCheck','uses'=>'PropertyController@uploadPropertyImage']);	
-Route::post('property/image/delete',['middleware'=>'adminCheck','uses'=>'PropertyController@deletePropertyImage']);	
+Route::post('property/image/delete',['middleware'=>'adminCheck','uses'=>'PropertyController@deletePropertyImage']);
+Route::post('property/image/setCoverImage',['middleware'=>'adminCheck','uses'=>'PropertyController@setCoverImage']);	
+
+Route::get('property/image/preload/{id}',['middleware'=>'adminCheck','uses'=>'PropertyController@preloadPropertyImage']);
+
 
 Route::get('propertyList',['as'=>'propertyList','middleware'=>'adminCheck','uses'=>'PropertyController@listProperties']);
 
@@ -36,6 +40,8 @@ Route::get('property/edit/{id}',['middleware'=>'adminCheck','uses'=>'PropertyCon
 Route::post('property/edit',['as'=>'property.edit','middleware'=>'adminCheck','uses'=>'PropertyController@postUpdateProperty']);
 
 Route::get('admin/propertyList',['as'=>'propertiesTable','middleware'=>'adminCheck','uses'=>'PropertyController@listPropertiesTable']);
+
+Route::get('admin/propertySoldList',['as'=>'propertiesSoldTable','middleware'=>'adminCheck','uses'=>'PropertyController@listSoldPropertiesTable']);
 
 Route::get('admin/login',['as'=>'login','uses'=>'UserController@getLogin']);
 Route::post('admin/login','UserController@postLogin');

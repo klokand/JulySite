@@ -18,11 +18,10 @@ Dropzone.options.myDropzone = {
         formData.append("_token", $('[name=_token').val()); // Laravel expect the token post value to be named _token by default
     },
     init: function() {
-      this.on("addedfile", function(file) {
-
+		this.on("addedfile", function(file) {
         // Create the remove button
         var removeButton = Dropzone.createElement("<button>Remove file</button>");
-
+		var setCoverImageButton = Dropzone.createElement("<button>Cover Image</button>");
 
         // Capture the Dropzone instance as closure.
         var _this = this;
@@ -36,20 +35,65 @@ Dropzone.options.myDropzone = {
           // Remove the file preview.
           _this.removeFile(file);
 		  var $post ={};
-		  $post.name = file.serverId;
+		  if(file.serverId==null){
+			var imageId = $(this).parent().find(".dz-filename > span").text();
+			$post.name = imageId;
+		  }else{
+			$post.name = file.serverId;
+		  }		  
 		  $post._token = $('input[name=_token]').val();
           $.ajax({
 			type: 'POST',
-			url: 'property/image/delete',
+			url: '/property/image/delete',
 			data: $post
+			});
+        });
+		
+		//set image id as the cover image
+		setCoverImageButton.addEventListener("click", function(e) {
+          // Make sure the button click doesn't submit the form:
+          e.preventDefault();
+          e.stopPropagation();
+
+		  var $post ={};
+		  if(file.serverId==null){
+			var imageId = $(this).parent().find(".dz-filename > span").text();
+			$post.name = imageId;
+		  }else{
+			$post.name = file.serverId;
+		  }		  
+		  $post._token = $('input[name=_token]').val();
+          $.ajax({
+			type: 'POST',
+			url: '/property/image/setCoverImage',
+			data: $post
+			});
+		 $(document).ajaxStart(function(){
+			$("#wait").css("display", "block");
+			});
+		$(document).ajaxComplete(function(){
+			$("#wait").css("display", "none");
 			});
         });
 
         // Add the button to the file preview element.
         file.previewElement.appendChild(removeButton);
-      });
+		file.previewElement.appendChild(setCoverImageButton);
+      }	);
 		this.on("success",function(file, response){
 			file.serverId = response.fileName;
+		});
+		var thisDropzone = this;
+		$.get('/property/image/preload/'+$("input[name=propertyId]").val(),function(data){
+			$.each(data,function(name,value){
+				for(key in value){
+					var mockFile = { name: value[key].name, size: value[key].size };
+					thisDropzone.emit("addedfile", mockFile);
+					thisDropzone.emit("thumbnail", mockFile, "/uploads/thumbs/"+value[key].name);
+					thisDropzone.emit("complete", mockFile);
+					console.log(key+":"+value[key].name);
+				}
+			});
 		});
     }
 	

@@ -15,7 +15,7 @@
                                     <a href="{{url('admin/propertyList')}}"><i class ="fa fa-pencil fa-fw"></i>Update Properties</a>
                                 </li>
 								<li>
-                                    <a href="#"><i class ="fa fa-check-square fa-fw"></i>Sold Properties</a>
+                                    <a href="{{route('propertiesSoldTable')}}"><i class ="fa fa-check-square fa-fw"></i>Sold Properties</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
