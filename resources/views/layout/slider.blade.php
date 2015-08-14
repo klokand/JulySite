@@ -5,11 +5,12 @@
 
                     <div class="carousel-inner">
                         <div class="item active">
-
+							<a href="#">
                             <img src="/img/1-1.jpg" alt="" />
                             <div class="carousel-caption" >
                                 <h4 class="back-light">Aenean faucibus luctus enim. Duis quis sem risu suspend lacinia elementum nunc.</h4>
                             </div>
+							</a>
                         </div>
                         <div class="item">
                             <a href="#"><img src="/img/1-2.jpg" alt="" /></a>

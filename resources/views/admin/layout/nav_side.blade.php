@@ -36,25 +36,31 @@
                             <a href="#"><i class="fa fa-file-text fa-fw"></i>Modify Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
 								<li>
-                                    <a href="#"><i class ="fa fa-camera-retro fa-fw"></i>Index Sliders</a>
+                                    <a href="{{url('admin/indexSlider')}}"><i class ="fa fa-camera-retro fa-fw"></i>Index Sliders</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class ="fa fa-table fa-fw"></i>Property Grid</a>
+                                    <a href="{{url('admin/projects')}}"><i class ="fa fa-table fa-fw"></i>Property Grid</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class ="fa fa-download fa-fw"></i>Loadable Offer</a>
+                                    <a href="{{url('admin/loadableOffer')}}"><i class ="fa fa-download fa-fw"></i>Loadable Offer</a>
                                 </li>
 								<li>
-                                    <a href="#"><i class ="fa fa-child fa-fw"></i>Team Members</a>
+                                    <a href="{{url('admin/teamMembers')}}"><i class ="fa fa-child fa-fw"></i>Team Members</a>
                                 </li>
 								<li>
-                                    <a href="#"><i class ="fa fa-comment fa-fw"></i>Quote</a>
+                                    <a href="{{url('admin/quote')}}"><i class ="fa fa-comment fa-fw"></i>Quote</a>
                                 </li>
 								<li>
-                                    <a href="#"><i class ="fa fa-thumbs-o-up fa-fw"></i>Partnership</a>
+                                    <a href="{{url('admin/partnership')}}"><i class ="fa fa-thumbs-o-up fa-fw"></i>Partnership</a>
                                 </li>
 								<li>
-                                    <a href="#"><i class ="fa fa-phone-square fa-fw"></i>Contact</a>
+                                    <a href="{{url('admin/contact')}}"><i class ="fa fa-phone-square fa-fw"></i>Contact</a>
+                                </li>
+								<li>
+                                    <a href="{{url('admin/aboutUs')}}"><i class ="fa fa-book fa-fw"></i>About Us</a>
+                                </li>
+								<li>
+                                    <a href="{{url('admin/queryEmail')}}"><i class ="fa fa-envelope fa-fw"></i>QueryEmail</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -17,6 +17,22 @@ Route::get('news', 'PageController@getNews');
 Route::get('contactUs', 'PageController@getContactUs');
 Route::get('property/{id}','PropertyController@getPropertyDetail');
 
+//sider bar pages route 
+Route::get('admin/indexSlider',['middleware'=>'adminCheck','uses'=>'PageController@getAdminIndexSlider']);
+
+Route::post('admin/indexSlider',['middleware'=>'adminCheck','uses'=>'PageController@postAdminIndexSlider']);
+
+Route::get('admin/projects',['middleware'=>'adminCheck','uses'=>'PageController@getAdminProjects']);
+Route::get('admin/loadableOffer',['middleware'=>'adminCheck','uses'=>'PageController@getAdminloadableOffer']);
+Route::get('admin/teamMembers',['middleware'=>'adminCheck','uses'=>'PageController@getAdminteamMemebers']);
+Route::get('admin/quote',['middleware'=>'adminCheck','uses'=>'PageController@getQuote']);
+Route::get('admin/partnership',['middleware'=>'adminCheck','uses'=>'PageController@getPartnership']);
+Route::get('admin/contact',['middleware'=>'adminCheck','uses'=>'PageController@getContact']);
+Route::get('admin/aboutUs',['middleware'=>'adminCheck','uses'=>'PageController@getAdminAboutUs']);
+Route::get('admin/queryEmail',['middleware'=>'adminCheck','uses'=>'PageController@getQueryEmail']);
+
+
+
 
 
 
