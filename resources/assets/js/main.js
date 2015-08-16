@@ -21,7 +21,7 @@
             });
             //SLIDESHOW SCRIPT
             $('.carousel').carousel({
-                interval: 3000 //TIME IN MILLI SECONDS
+                interval: false 
             });
 
             /*====================================

@@ -11,20 +11,20 @@
 			<div class="address">
 				<div class="label label-default col-xs-12 col-sm-12 col-md-12">
 				<h4><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Head office:</h4>
-				<p>No.9 , the example road, North Beach West Australia 6020</p>
+				<p>{{$page->location}}</p>
 				</div>
-				<img src="img/map1.jpg" class=" img-responsive"/>
+				<img src="{{'/'.\Config::get('image.page_image').$page->location_image}}" class=" img-responsive"/>
 			</div>
 			<div class="phone">
 				<div class="label label-default col-xs-12 col-sm-12 col-md-12">
 				<h4><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> Tel:</h4>
-				<a href="tel:999-999-9999"><p>999 999 9999</p></a>
+				<a href="tel:{{$page->telephone}}"><p>{{$page->telephone}}</p></a>
 				</div>
 			</div>
 			<div class="email">
 				<div class="label label-default col-xs-12 col-sm-12 col-md-12">
 				<h4><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Email:</h4>
-				<a href="mailto:info@luckycountryInvestments.com.au"><p>info@luckycountryInvestments.com.au</p></a>
+				<a href="mailto:info@luckycountryInvestments.com.au"><p>{{$page->email}}</p></a>
 				</div>
 			</div>
 			</div>

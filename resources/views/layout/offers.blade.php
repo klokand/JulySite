@@ -5,7 +5,11 @@
                       <h1>  Download Now For Our Latest Offers</h1>
                  </div>
                  <div class="col-md-4 col-sm-4" style="padding-top: 15px;">
-                     <a href="#" class=" btn btn-primary btn-lg">GRAB IT HERE NOW</a> 
+					@if($page->download_offer!=null)
+                     <a href="{{asset('uploads/pdf/'.$page->download_offer)}}" class=" btn btn-primary btn-lg" download>GRAB IT HERE NOW</a> 
+					 @else
+					 <a href="#" class=" btn btn-primary btn-lg">GRAB IT HERE NOW</a>
+					 @endif
                  </div>
                           
                </div>

@@ -38,9 +38,11 @@
 								<li>
                                     <a href="{{url('admin/indexSlider')}}"><i class ="fa fa-camera-retro fa-fw"></i>Index Sliders</a>
                                 </li>
+								<!--
                                 <li>
                                     <a href="{{url('admin/projects')}}"><i class ="fa fa-table fa-fw"></i>Property Grid</a>
                                 </li>
+								-->
                                 <li>
                                     <a href="{{url('admin/loadableOffer')}}"><i class ="fa fa-download fa-fw"></i>Loadable Offer</a>
                                 </li>

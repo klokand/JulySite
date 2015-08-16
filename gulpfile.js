@@ -30,6 +30,7 @@ elixir(function(mix) {
 		'vendor/css/basic.min.css',
 		'vendor/css/dropzone.min.css',
 		'vendor/css/jquery-te-1.4.0.css',
+		'vendor/css/froala_editor.min.css',
 		'css/back-end.css'
 	],'public/output/back.css','resources/assets');
 	mix.scripts([
@@ -48,6 +49,7 @@ elixir(function(mix) {
 		'vendor/js/dataTables.responsive.js',
 		'vendor/js/dropzone.js',
 		'vendor/js/jquery-te-1.4.0.min.js',
+		'vendor/js/froala_editor.min.js',
 		'js/back-end.js'
 	],'public/output/back.js','resources/assets');
 	mix.copy('resources/assets/img','public/img');

@@ -16,6 +16,22 @@ return array(
 	//height of the resized thumbnail
 	'thumb_height'=>120,
 	
+	'news_image'=>'uploads/news/',
+	'pdf_folder'=>'uploads/pdf/',
+	'page_image'=>'uploads/page/',
+	
+	'slider_image_width'=>1600,
+	'slider_image_height'=>800,
+	
+	'member_image_width'=>200,
+	'member_image_height'=>240,
+	
+	'quote_image_width'=>1600,
+	'quote_image_height'=>800,
+	
+	'contact_image_width'=>600,
+	'contact_image_height'=>325,
+	
 	
 	//property image
 	'property_image'=>'uploads/properties',

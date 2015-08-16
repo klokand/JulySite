@@ -8,6 +8,36 @@ $(document).ready(function() {
 		placeholder:true,
 		placeholder: "description",
 	});
+	$('#aboutUs_edit').editable({
+		inlineMode: false,
+		imageUploadURL: "/editor/image/upload",
+		crossDomain: false,
+		autosave: false,
+		// Set the save param.
+        saveParam: 'content',
+        // Set the save URL.
+        saveURL: '/editor/aboutUs/save',
+        // HTTP request type.
+        saveRequestType: 'POST',
+		saveParams: {
+			id: 'my_editor',
+			_token: $('input[name=_token]').val()
+		}
+	});
+	// Getter.
+var imageUploadParams = $('#aboutUs_edit').editable('option', 'imageUploadParams');
+
+// Setter.
+$('#aboutUs_edit').editable('option', 'imageUploadParams', {
+    id: 'editor_image',
+	_token: $('input[name=_token]').val()
+  });
+  $('#aboutUs_edit').on('editable.imageLoaded', function (e, editor, URL) {
+});
+$('#aboutUs_saveButton').click (function () {
+    $('#aboutUs_edit').editable('save')
+  })
+
 	 $('#submit').click(function () {
         var mysave = $(".jqte_editor").html();
         $('#description-input').val(mysave);

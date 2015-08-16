@@ -2,6 +2,7 @@
 
 use Closure;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
+use Input;
 
 class VerifyCsrfToken extends BaseVerifier {
 

@@ -134,7 +134,7 @@ d.trigger("activate.bs.scrollspy")},b.prototype.clear=function(){a(this.selector
             });
             //SLIDESHOW SCRIPT
             $('.carousel').carousel({
-                interval: 3000 //TIME IN MILLI SECONDS
+                interval: false 
             });
 
             /*====================================
