@@ -9,6 +9,7 @@ $(document).ready(function() {
 		placeholder: "description",
 	});
 	$('#aboutUs_edit').editable({
+		buttons: ["bold", "italic", "underline", "strikeThrough", "fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
 		inlineMode: false,
 		imageUploadURL: "/editor/image/upload",
 		crossDomain: false,
@@ -22,21 +23,46 @@ $(document).ready(function() {
 		saveParams: {
 			id: 'my_editor',
 			_token: $('input[name=_token]').val()
+		},
+		imageUploadParams:{
+			 id: 'editor_image',
+			_token: $('input[name=_token]').val()
 		}
 	});
-	// Getter.
-var imageUploadParams = $('#aboutUs_edit').editable('option', 'imageUploadParams');
-
-// Setter.
-$('#aboutUs_edit').editable('option', 'imageUploadParams', {
-    id: 'editor_image',
-	_token: $('input[name=_token]').val()
-  });
-  $('#aboutUs_edit').on('editable.imageLoaded', function (e, editor, URL) {
+	$('#aboutUs_edit').on('editable.afterSave', function (e, editor, data) {
+		alert('Saved');
 });
 $('#aboutUs_saveButton').click (function () {
     $('#aboutUs_edit').editable('save')
-  })
+  });
+  /*mission editor*/
+  $('#mission_edit').editable({
+		buttons: ["bold", "italic", "underline", "strikeThrough", "fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
+		inlineMode: false,
+		imageUploadURL: "/editor/image/upload",
+		crossDomain: false,
+		autosave: false,
+		// Set the save param.
+        saveParam: 'content',
+        // Set the save URL.
+        saveURL: '/editor/mission/save',
+        // HTTP request type.
+        saveRequestType: 'POST',
+		saveParams: {
+			id: 'my_editor',
+			_token: $('input[name=_token]').val()
+		},
+		imageUploadParams:{
+			 id: 'editor_image',
+			_token: $('input[name=_token]').val()
+		}
+	});
+	$('#mission_edit').on('editable.afterSave', function (e, editor, data) {
+		alert('Saved');
+});
+$('#mission_saveButton').click (function () {
+    $('#mission_edit').editable('save')
+  });
 
 	 $('#submit').click(function () {
         var mysave = $(".jqte_editor").html();

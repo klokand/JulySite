@@ -40,6 +40,7 @@ Route::post('admin/contact',['middleware'=>'adminCheck','uses'=>'PageController@
 Route::get('admin/aboutUs',['middleware'=>'adminCheck','uses'=>'PageController@getAdminAboutUs']);
 Route::post('editor/image/upload',['middleware'=>'adminCheck','uses'=>'PageController@postEditorImage']);
 Route::post('/editor/aboutUs/save',['middleware'=>'adminCheck','uses'=>'PageController@postSaveAboutUs']);
+Route::post('/editor/mission/save',['middleware'=>'adminCheck','uses'=>'PageController@postSaveMission']);
 
 Route::get('admin/queryEmail',['middleware'=>'adminCheck','uses'=>'PageController@getQueryEmail']);
 

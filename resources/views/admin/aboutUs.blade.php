@@ -2,22 +2,19 @@
 @section('content')
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <section id="editor">
+	<h4>About Us</h4>
 	<div id="aboutUs_edit">
-		Your editable content goes here
+		{!!$page->aboutus!!}
 	</div>
 </section>
 <a type="button" id="aboutUs_saveButton" class="btn btn-primary btn-lg btn-block">Save</a>
-
-<section id="contactUs">
-	<div class="container">
-		<div class="row">
-			<h1 class="page-header">
-                About Us
-            </h1>
-			<div class="col-md-10">
-			{!!$page->aboutus!!}
-			</div>
-		</div>
+<hr>
+<section id="editor">
+	<h4>mission</h4>
+	<div id="mission_edit">
+		{!!$page->mission!!}
 	</div>
 </section>
+<a type="button" id="mission_saveButton" class="btn btn-primary btn-lg btn-block">Save</a>
+
 @endsection

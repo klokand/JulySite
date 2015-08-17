@@ -299,4 +299,11 @@ class PageController extends Controller {
 		$page->save();
 		return response()->json(['success' => 200]);
 	}
+		public function postSaveMission(){
+		$input = Input::all();
+		$page = Page::find(1);
+		$page->mission =Input::get('content');
+		$page->save();
+		return response()->json(['success' => 200]);
+	}
 }

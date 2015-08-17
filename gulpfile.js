@@ -50,6 +50,9 @@ elixir(function(mix) {
 		'vendor/js/dropzone.js',
 		'vendor/js/jquery-te-1.4.0.min.js',
 		'vendor/js/froala_editor.min.js',
+		'vendor/js/tables.min.js',
+		'vendor/js/font_family.min.js',
+		'vendor/js/font_size.min.js',
 		'js/back-end.js'
 	],'public/output/back.js','resources/assets');
 	mix.copy('resources/assets/img','public/img');
