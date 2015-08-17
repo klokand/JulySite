@@ -30,6 +30,20 @@
 				@endif
             </div>
 			@endif
+			@if($page->team_member3_image !=null)
+            <div class="col-md-4 col-sm-4" >
+                <img class="img-circle" src="{{'/'.\Config::get('image.page_image').$page->team_member3_image}}" alt="" />
+                <h3><strong>{{$page->team_member3_name}}</strong> </h3>
+				<h4>{{$page->team_member3_position}}</h4>
+				@if(Request::path() == '/')
+                <a href="{{url('aboutUs')}}" class="btn btn-primary" >Read Details</a>
+				@endif
+				@if(Request::path() == 'aboutUs')
+                <p>{{$page->team_member3_summary}}</p>
+				@endif
+    
+            </div>
+			@endif
                       
          </div>
        </div>   

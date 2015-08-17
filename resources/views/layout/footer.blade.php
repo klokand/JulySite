@@ -13,9 +13,7 @@
                <div class="col-md-4 col-md-offset-2">
                    <h4> <strong>OUR LOCATION</strong> </h4>
                             <p>
-                               No.9 , the example road, <br />
-                               NORTH BEACH  <br />
-                               West Australia 6020
+                               {{$page->location}}
                             </p>
                     <a href="{{url('contactUs')}}" class="btn btn-primary" >SEND QUERY</a>
                 </div>
