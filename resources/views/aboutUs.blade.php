@@ -10,9 +10,6 @@
 			<div class="col-md-12">
 			{!!$page->aboutus!!}
 			</div>
-			<h2 class="page-header">
-                Our Mission
-            </h2>
 			<div class="col-md-12">
 			{!!$page->mission!!}
 			</div>
