@@ -11,13 +11,15 @@ use Request;
 use App\Property;
 use App\PropertyImage;
 use Redirect;
+use App\Page;
 
 class PropertyController extends Controller {
 
 	public function getPropertyDetail($id){
+		$page = Page::find(1);
 		$property = Property::find($id);
 		if ($property!=null){
-			return view('propertyDetail')->with('property',$property);
+			return view('propertyDetail')->with(['property'=>$property,'page'=>$page]);
 			//return view('property');
 		}else{
 			return 'no property fund';
@@ -25,6 +27,7 @@ class PropertyController extends Controller {
 		
 	}
 	public function listProperties($type){
+		$page = Page::find(1);
 		if($type=="Home Land Package"){
 			$pageName = 'Home Land Package';
 			$results = Property::available()->homeLand()->paginate(4);
@@ -45,7 +48,7 @@ class PropertyController extends Controller {
 			$results = Property::total()->paginate(4);
 		}
 		
-		return view('properties')->with(['properties'=>$results,'pageName'=>$pageName]);
+		return view('properties')->with(['properties'=>$results,'pageName'=>$pageName,'page'=>$page]);
 	}
 	
 	public function listPropertiesTable(){
