@@ -10,10 +10,12 @@
 			<div class="col-md-12">
 			{!!$page->aboutus!!}
 			</div>
+			<h2 class="page-header">
+                Our Mission
+            </h2>
 			<div class="col-md-12">
 			{!!$page->mission!!}
-			</div>
-			<h2 class="page-header">Our team</h2>			
+			</div>			
 			@include('layout.teamInfo')
 		</div>
 	</div>		
