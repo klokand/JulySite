@@ -14,15 +14,15 @@ class CreatePagesTable extends Migration {
 		Schema::create('pages', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('sliderImage1')->default('');
+			$table->string('sliderImage1')->default('slider1');
 			$table->string('caption1')->default('This is the Slider');
-			$table->string('slider1_link')->default('#');
-			$table->string('sliderImage2')->default('');
+			$table->string('slider1_link')->default('#slider1');
+			$table->string('sliderImage2')->default('slider1');
 			$table->string('caption2')->default('This is the Slider');
-			$table->string('slider2_link')->default('#');
-			$table->string('sliderImage3')->default('');
+			$table->string('slider2_link')->default('#slider2');
+			$table->string('sliderImage3')->default('slider3');
 			$table->string('caption3')->default('This is the Slider');
-			$table->string('slider3_link')->default('#');
+			$table->string('slider3_link')->default('slider3');
 			$table->string('project1')->default('project.jpg');
 			$table->string('project1_text')->default('This is the default project summary');
 			$table->string('project2')->default('project.jpg');
