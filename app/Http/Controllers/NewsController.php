@@ -75,7 +75,7 @@ class NewsController extends Controller {
 						'title'=>Input::get('title'),
 						'coverImage'=>$filename,
 					));
-				return Redirect::to('news/create');
+				return Redirect::to('admin/newsList');
 				}
 		}else{
 			$error = $validation->errors()->first();
