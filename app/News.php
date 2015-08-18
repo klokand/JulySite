@@ -13,7 +13,7 @@ class News extends Model {
 		'content'=>'required|min:10',
 		'author'=>'required|min:2',
 		'title'=>'required|min:2',
-		'coverImage'=>'image',
+		'coverImage'=>'image|max:2000',
 	);
 	public function scopeNews($query){
 		return $query->where('types','=','news')->orderBy('created_at', 'asc');
