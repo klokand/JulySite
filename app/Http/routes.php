@@ -13,9 +13,12 @@
 Route::get('/', 'PageController@getIndex');
 Route::get('aboutUs', 'PageController@getAboutUs');
 Route::get('properties/{type}', 'PropertyController@listProperties');
-Route::get('news', 'PageController@getNews');
+Route::get('development', 'NewsController@getDevelopments');
+//Route::get('news', 'PageController@getNews');
 Route::get('contactUs', 'PageController@getContactUs');
 Route::get('property/{id}','PropertyController@getPropertyDetail');
+
+
 
 //sider bar pages route 
 Route::get('admin/indexSlider',['middleware'=>'adminCheck','uses'=>'PageController@getAdminIndexSlider']);
@@ -44,7 +47,7 @@ Route::post('/editor/mission/save',['middleware'=>'adminCheck','uses'=>'PageCont
 
 Route::get('admin/queryEmail',['middleware'=>'adminCheck','uses'=>'PageController@getQueryEmail']);
 
-
+Route::get('admin/newsList',['as'=>'propertyList','middleware'=>'adminCheck','uses'=>'newsController@listNews']);
 
 
 
@@ -86,6 +89,6 @@ Route::get('updateAdmin/{id}',['middleware'=>'superAdminCheck','uses'=>'UserCont
 
 Route::get('adminPanel', ['as'=>'adminPanel','middleware'=>'adminCheck','uses'=>'PageController@getAdminPanel']);
 
-
+Route::resource('news', 'NewsController');
 
 

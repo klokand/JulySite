@@ -24,10 +24,10 @@
                             <a href="#"><i class="fa fa-globe fa-fw"></i>News<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class="fa fa-plus-circle fa-fw"></i>Add News</a>
+                                    <a href="{{url('news/create')}}"><i class="fa fa-plus-circle fa-fw"></i>Add News</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class ="fa fa-pencil fa-fw"></i>Update News</a>
+                                    <a href="{{url('admin/newsList')}}"><i class ="fa fa-pencil fa-fw"></i>Update News</a>
                                 </li>
                             </ul>
                         </li>

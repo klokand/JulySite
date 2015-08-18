@@ -934,6 +934,29 @@ height: auto;
 	padding-bottom:10px;
 }
 
+/*development styles*/
+#developmentList .development{
+margin-top: 10px;
+padding-top: 30px;
+padding-bottom: 10px;
+}
+#developmentList .development:hover{
+margin-top: 10px;
+background-color:whitesmoke;
+padding-top: 30px;
+padding-bottom: 10px;
+}
+#developmentList .development .title{
+	font-family: fantasy;
+	font-size: 29PX;
+}
+
+/*development Detail*/
+#developmentDetail #contactForm{
+	margin-top:50px;
+	background-color:whitesmoke;
+}
+
 /*CONTACT STYLES*/
 #contactUs{
 	padding-top:50px;

@@ -32,6 +32,10 @@ return array(
 	'contact_image_width'=>600,
 	'contact_image_height'=>325,
 	
+	'news_image_width'=>650,
+	'news_image_height'=>415,
+	
+	
 	
 	//property image
 	'property_image'=>'uploads/properties',

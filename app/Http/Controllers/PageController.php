@@ -29,10 +29,12 @@ class PageController extends Controller {
 		$page = Page::find(1);
 		return view('properties')->with('page',$page);
 	}
+	/*
 	public function getNews(){
 		$page = Page::find(1);
 		return view('news')->with('page',$page);
 	}
+	*/
 	public function getContactUs(){
 		$page = Page::find(1);
 		return view('contactUs')->with('page',$page);

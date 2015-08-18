@@ -17,7 +17,7 @@
                     <li><a href="{{url('aboutUs')}}">About Us</a></li>
                     <li class="dropdown"><a href="{{url('properties/All')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Land <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="{{url('properties/All')}}">Redevelopment</a></li>
+						<li><a href="{{url('development')}}">Redevelopment</a></li>
 						<li><a href="{{url('properties/Home Land Package')}}">Home Land Package</a></li>
 					</ul>
 				</li>

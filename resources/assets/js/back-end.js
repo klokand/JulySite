@@ -9,7 +9,7 @@ $(document).ready(function() {
 		placeholder: "description",
 	});
 	$('#aboutUs_edit').editable({
-		buttons: ["bold", "italic", "underline", "strikeThrough", "fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
+		buttons: ["bold", "italic", "underline", "strikeThrough",'fontFamily', "fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
 		inlineMode: false,
 		imageUploadURL: "/editor/image/upload",
 		crossDomain: false,
@@ -31,13 +31,13 @@ $(document).ready(function() {
 	});
 	$('#aboutUs_edit').on('editable.afterSave', function (e, editor, data) {
 		alert('Saved');
-});
+	});
 $('#aboutUs_saveButton').click (function () {
     $('#aboutUs_edit').editable('save')
   });
   /*mission editor*/
   $('#mission_edit').editable({
-		buttons: ["bold", "italic", "underline", "strikeThrough", "fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
+		buttons: ["bold", "italic", "underline", "strikeThrough",'fontFamily',"fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
 		inlineMode: false,
 		imageUploadURL: "/editor/image/upload",
 		crossDomain: false,
@@ -63,7 +63,37 @@ $('#aboutUs_saveButton').click (function () {
 $('#mission_saveButton').click (function () {
     $('#mission_edit').editable('save')
   });
+//
+/*create news editor*/
+  $('#news_edit').editable({
+		buttons: ["bold", "italic", "underline", "strikeThrough",'fontFamily',"fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
+		inlineMode: false,
+		imageUploadURL: "/editor/image/upload",
+		crossDomain: false,
+		autosave: false,
+		// Set the save param.
+        saveParam: 'content',
+        // Set the save URL.
+        //saveURL: '/news',
+        // HTTP request type.
+        //saveRequestType: 'POST',
+		saveParams: {
+			id: 'my_editor',
+			_token: $('input[name=_token]').val()
+		},
+		imageUploadParams:{
+			 id: 'editor_image',
+			_token: $('input[name=_token]').val()
+		}
+	});
+	$('#news_edit').editable('setHTML', $('input[name=content]').val(), true);
 
+$('#news_saveButton').click (function () {
+	$('input[name=content]').val($('div#news_edit').editable('getHTML'));
+    //$('#news_edit').editable('save');
+	 $('#createNews_form').submit();
+  });
+//
 	 $('#submit').click(function () {
         var mysave = $(".jqte_editor").html();
         $('#description-input').val(mysave);
