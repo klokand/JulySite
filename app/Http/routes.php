@@ -47,7 +47,7 @@ Route::post('/editor/mission/save',['middleware'=>'adminCheck','uses'=>'PageCont
 
 Route::get('admin/queryEmail',['middleware'=>'adminCheck','uses'=>'PageController@getQueryEmail']);
 
-Route::get('admin/newsList',['as'=>'propertyList','middleware'=>'adminCheck','uses'=>'newsController@listNews']);
+Route::get('admin/newsList',['as'=>'newsList','middleware'=>'adminCheck','uses'=>'NewsController@listNews']);
 
 
 
