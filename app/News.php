@@ -15,6 +15,14 @@ class News extends Model {
 		'title'=>'required|min:2',
 		'coverImage'=>'required|image|max:2000',
 	);
+	public static $news_update_rules = array(
+		'types'=>'required|in:news,development',
+		'content'=>'required|min:10',
+		'author'=>'required|min:2',
+		'title'=>'required|min:2',
+		'coverImage'=>'sometimes|image|max:2000',
+	);
+	
 	public function scopeNews($query){
 		return $query->where('types','=','news')->orderBy('created_at', 'asc');
 	}

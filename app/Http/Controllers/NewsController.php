@@ -14,7 +14,7 @@ class NewsController extends Controller {
 
 	 public function __construct()
     {
-        $this->middleware('adminCheck');
+        $this->middleware('adminCheck',['except' => ['index', 'show','getDevelopments',]]);
     }
 
 	/**
@@ -122,28 +122,58 @@ class NewsController extends Controller {
 	{
 		$input = Input::all();
 		$news = News::find($id);
-		$validation = Validator::make($input,News::$news_rules);
+		$validation = Validator::make($input,News::$news_update_rules);
 		if($validation->passes()){
 			if(Input::get('types')=='news'){
+			  if(Input::file('coverImage')!=null){
 				$image = Input::file('coverImage');
 				$extension = $image->getClientOriginalExtension();
 				$filename = sha1(time().time()).".{$extension}";
 				$upload_success=\Image::make($image)->resize(\Config::get('image.news_image_width'),\Config::get('image.news_image_height'))->save(\Config::get('image.news_image').$filename);
-			}elseif(Input::get('types')=='development'){
-				$image = Input::file('coverImage');
-				$extension = $image->getClientOriginalExtension();
-				$filename = sha1(time().time()).".{$extension}";
-				$upload_success=\Image::make($image)->save(\Config::get('image.news_image').$filename);
-			}
-			if($upload_success){
-				$news->types= Input::get('types');
-				$news->author = Input::get('author');
-				$news->content = Input::get('content');
-				$news->title =Input::get('title');
-				$news->coverImage =$filename;
-				$news->save();
-				return Redirect::to('admin/newsList');
+					if($upload_success){
+					$news->types= Input::get('types');
+					$news->author = Input::get('author');
+					$news->content = Input::get('content');
+					$news->title =Input::get('title');
+					$news->coverImage =$filename;
+					$news->save();
+					return Redirect::to('admin/newsList');
+					}
+				}else{
+					$news->types= Input::get('types');
+					$news->author = Input::get('author');
+					$news->content = Input::get('content');
+					$news->title =Input::get('title');
+					$news->save();
+					return Redirect::to('admin/newsList');
+					
 				}
+			}elseif(Input::get('types')=='development'){
+				if(Input::file('coverImage')!=null){
+					$image = Input::file('coverImage');
+					$extension = $image->getClientOriginalExtension();
+					$filename = sha1(time().time()).".{$extension}";
+					$upload_success=\Image::make($image)->save(\Config::get('image.news_image').$filename);
+					if($upload_success){
+						$news->types= Input::get('types');
+						$news->author = Input::get('author');
+						$news->content = Input::get('content');
+						$news->title =Input::get('title');
+						$news->coverImage =$filename;
+						$news->save();
+						return Redirect::to('admin/newsList');
+					}
+				}else{
+						$news->types= Input::get('types');
+						$news->author = Input::get('author');
+						$news->content = Input::get('content');
+						$news->title =Input::get('title');
+						$news->save();
+						return Redirect::to('admin/newsList');
+				}
+				
+			}
+			
 		}else{
 			$error = $validation->errors()->first();
 			return Redirect::back()->withInput(Input::all())->with(compact('error'));
