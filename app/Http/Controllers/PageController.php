@@ -137,7 +137,7 @@ class PageController extends Controller {
 			{
 				$name = Input::file('download_offer')->getClientOriginalName();
 				$extension = Input::file('download_offer')->getClientOriginalExtension();
-				$upload_success=Input::file('download_offer')->move('\uploads\pdf',$name);
+				$upload_success=Input::file('download_offer')->move(\Config::get('image.pdf_folder'),$name);
 			}
 			if($upload_success){
 				$page->download_offer =$name;
