@@ -14,18 +14,16 @@
                                     <thead>
                                         <tr>
 											<th>Id</th>
-											<th>Email</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-											<th>Type</th>
-                                            <th>Activated</th>
-											<th>Created Date</th>
-											<th>Last Login</th>
+											<th>Author</th>
+                                            <th>Title</th>
+                                            <th>Created at</th>
+											<th>Updated at</th>
+											<th>Delete</th>
 											<th>update</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-								
+									{!!$newsList!!}
                                     </tbody>
                                 </table>
                             </div>

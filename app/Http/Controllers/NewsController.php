@@ -186,13 +186,31 @@ class NewsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function delete($id)
 	{
-		//
+		$news = News::findOrFail($id);
+		$news->delete();
+		return Redirect::to('admin/newsList');
 	}
 	
 	public function listNews(){
-		return view('admin.newsList')->with(['pageName'=>'All Sold Properties']);
+		$news = News::all();
+		
+		$newsList ="";
+		$i=0;
+		foreach($news as $item){
+			$updateLink = url('news/'.$item->id.'/edit');
+			$deleteLink = route('news.delete', ['id' => $item->id]);
+			$rowData = "<td>".$item->id."</td><td>".$item->author."</td><td>".$item->title."</td><td>".$item->created_at."</td><td>".$item->updated_at."</td><td><a href=".$deleteLink." class=\"btn btn-primary\" role=\"button\">delete</a></td><td><a href=\"".$updateLink."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
+			if($i%2===0){
+				$rowOutput = "<tr class=\"even\">".$rowData."</tr>";
+			}else{
+				$rowOutput = "<tr class=\"odd\">".$rowData."</tr>";
+			}
+			$newsList = $newsList.$rowOutput;
+			$i++;
+		}
+		return view('admin.newsList')->with(['pageName'=>'All The News','newsList'=>$newsList]);
 	}
 
 }

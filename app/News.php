@@ -24,7 +24,7 @@ class News extends Model {
 	);
 	
 	public function scopeNews($query){
-		return $query->where('types','=','news')->orderBy('created_at', 'asc');
+		return $query->where('types','=','news')->orderBy('created_at', 'desc');
 	}
 	public function scopeDevelopment($query){
 		return $query->where('types','=','development')->orderBy('created_at', 'desc');
