@@ -14,6 +14,7 @@
                                     <thead>
                                         <tr>
 											<th>Id</th>
+											<th>Type</th>
 											<th>Author</th>
                                             <th>Title</th>
                                             <th>Created at</th>

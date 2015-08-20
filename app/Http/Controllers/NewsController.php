@@ -201,7 +201,7 @@ class NewsController extends Controller {
 		foreach($news as $item){
 			$updateLink = url('news/'.$item->id.'/edit');
 			$deleteLink = route('news.delete', ['id' => $item->id]);
-			$rowData = "<td>".$item->id."</td><td>".$item->author."</td><td>".$item->title."</td><td>".$item->created_at."</td><td>".$item->updated_at."</td><td><a href=".$deleteLink." class=\"btn btn-primary\" role=\"button\">delete</a></td><td><a href=\"".$updateLink."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
+			$rowData = "<td>".$item->id."</td><td>".$item->types."</td><td>".$item->author."</td><td>".$item->title."</td><td>".$item->created_at."</td><td>".$item->updated_at."</td><td><a href=".$deleteLink." class=\"btn btn-primary\" role=\"button\">delete</a></td><td><a href=\"".$updateLink."\" class=\"btn btn-primary\" role=\"button\">update</a></td>";
 			if($i%2===0){
 				$rowOutput = "<tr class=\"even\">".$rowData."</tr>";
 			}else{
