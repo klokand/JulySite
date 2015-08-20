@@ -120,7 +120,7 @@ class PropertyController extends Controller {
 			if (Input::hasFile('pdf'))
 			{
 				$name = Input::file('pdf')->getClientOriginalName();
-				Input::file('pdf')->move('uploads\pdf',$name);
+				Input::file('pdf')->move(\Config::get('image.pdf_folder'),$name);
 				$property->pdf = $name;
 			}
 			$property->save();
@@ -154,7 +154,7 @@ class PropertyController extends Controller {
 			if (Input::hasFile('pdf'))
 			{
 				$name = Input::file('pdf')->getClientOriginalName();
-				Input::file('pdf')->move('uploads\pdf',$name);
+				Input::file('pdf')->move(\Config::get('image.pdf_folder'),$name);
 			}
 			Property::create(array(
 			'id'=>Input::get('propertyId'),
