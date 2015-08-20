@@ -44,6 +44,8 @@ Route::get('admin/aboutUs',['middleware'=>'adminCheck','uses'=>'PageController@g
 Route::post('editor/image/upload',['middleware'=>'adminCheck','uses'=>'PageController@postEditorImage']);
 Route::post('/editor/aboutUs/save',['middleware'=>'adminCheck','uses'=>'PageController@postSaveAboutUs']);
 Route::post('/editor/mission/save',['middleware'=>'adminCheck','uses'=>'PageController@postSaveMission']);
+Route::post('/editor/projects/save',['middleware'=>'adminCheck','uses'=>'PageController@postSaveProjects']);
+Route::post('/editor/partners/save',['middleware'=>'adminCheck','uses'=>'PageController@postSavePartners']);
 
 Route::get('admin/queryEmail',['middleware'=>'adminCheck','uses'=>'PageController@getQueryEmail']);
 

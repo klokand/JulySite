@@ -16,5 +16,21 @@
 	</div>
 </section>
 <a type="button" id="mission_saveButton" class="btn btn-primary btn-lg btn-block">Save</a>
+<hr>
+<section id="editor">
+	<h4>partners</h4>
+	<div id="partners_edit">
+		{!!$page->partners!!}
+	</div>
+</section>
+<a type="button" id="partners_saveButton" class="btn btn-primary btn-lg btn-block">Save</a>
+<hr>
+<section id="editor">
+	<h4>projects</h4>
+	<div id="projects_edit">
+		{!!$page->projects!!}
+	</div>
+</section>
+<a type="button" id="projects_saveButton" class="btn btn-primary btn-lg btn-block">Save</a>
 
 @endsection

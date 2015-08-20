@@ -26,7 +26,7 @@ class AddPropertyPdf extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('news', function(Blueprint $table)
+		Schema::table('properties', function(Blueprint $table)
 		{
 			$table->dropColumn('pdf');
 		});

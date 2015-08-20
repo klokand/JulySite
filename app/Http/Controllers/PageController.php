@@ -303,10 +303,24 @@ class PageController extends Controller {
 		$page->save();
 		return response()->json(['success' => 200]);
 	}
-		public function postSaveMission(){
+	public function postSaveMission(){
 		$input = Input::all();
 		$page = Page::find(1);
 		$page->mission =Input::get('content');
+		$page->save();
+		return response()->json(['success' => 200]);
+	}
+	public function postSaveProjects(){
+		$input = Input::all();
+		$page = Page::find(1);
+		$page->projects =Input::get('content');
+		$page->save();
+		return response()->json(['success' => 200]);
+	}
+	public function postSavePartners(){
+		$input = Input::all();
+		$page = Page::find(1);
+		$page->partners =Input::get('content');
 		$page->save();
 		return response()->json(['success' => 200]);
 	}

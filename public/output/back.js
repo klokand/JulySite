@@ -2998,6 +2998,62 @@ $('#aboutUs_saveButton').click (function () {
 $('#mission_saveButton').click (function () {
     $('#mission_edit').editable('save')
   });
+  /*projects editor*/
+  $('#projects_edit').editable({
+		buttons: ["bold", "italic", "underline", "strikeThrough",'fontFamily',"fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
+		inlineMode: false,
+		imageUploadURL: "/editor/image/upload",
+		crossDomain: false,
+		autosave: false,
+		// Set the save param.
+        saveParam: 'content',
+        // Set the save URL.
+        saveURL: '/editor/projects/save',
+        // HTTP request type.
+        saveRequestType: 'POST',
+		saveParams: {
+			id: 'my_editor',
+			_token: $('input[name=_token]').val()
+		},
+		imageUploadParams:{
+			 id: 'editor_image',
+			_token: $('input[name=_token]').val()
+		}
+	});
+	$('#projects_edit').on('editable.afterSave', function (e, editor, data) {
+		alert('Saved');
+});
+$('#projects_saveButton').click (function () {
+    $('#projects_edit').editable('save')
+  }); 
+ /*partners editor*/
+  $('#partners_edit').editable({
+		buttons: ["bold", "italic", "underline", "strikeThrough",'fontFamily',"fontSize", "color", "sep", "formatBlock", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "sep", "selectAll", "createLink", "insertImage", "undo", "redo", "html"],
+		inlineMode: false,
+		imageUploadURL: "/editor/image/upload",
+		crossDomain: false,
+		autosave: false,
+		// Set the save param.
+        saveParam: 'content',
+        // Set the save URL.
+        saveURL: '/editor/partners/save',
+        // HTTP request type.
+        saveRequestType: 'POST',
+		saveParams: {
+			id: 'my_editor',
+			_token: $('input[name=_token]').val()
+		},
+		imageUploadParams:{
+			 id: 'editor_image',
+			_token: $('input[name=_token]').val()
+		}
+	});
+	$('#partners_edit').on('editable.afterSave', function (e, editor, data) {
+		alert('Saved');
+});
+$('#partners_saveButton').click (function () {
+    $('#partners_edit').editable('save')
+  }); 
 //
 /*create news editor*/
   $('#news_edit').editable({
