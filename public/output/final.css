@@ -675,6 +675,15 @@ logo
 	position: relative;
 	top: -10px;
 }
+.navbar-pad-original .logo .logo1,
+.navbar-pad-original .logo .logo2{
+	display: inline;
+	width: auto;
+	height: 44px;
+	position: relative;
+	top: -10px;
+	left: 15px;
+}
 @media screen and (min-width: 768px) and (max-width: 991px){
 	.logo .logo1,
 .logo .logo2{
@@ -689,21 +698,32 @@ logo
 .navbar-pad-original .logo .logo2{
 	display: inline;
 	width: auto;
-	height: 44px;
+	height: 29px;
 	position: relative;
-	top: -10px;
-	left: 15px;
+	top: -7px;
+	left: -15px;
 	}	
 }
 
-.navbar-pad-original .logo .logo1,
+@media screen and (min-width: 320px) and (max-width: 437px){
+	.logo .logo1,
+.logo .logo2{
+	display: inline;
+	width: auto;
+	height: 38px;
+	position: relative;
+	top: -33px;
+	left: -25px;
+}
+	.navbar-pad-original .logo .logo1,
 .navbar-pad-original .logo .logo2{
 	display: inline;
 	width: auto;
-	height: 44px;
+	height: 41px;
 	position: relative;
-	top: -10px;
-	left: 15px;
+	top: -33px;
+	left: -25px;
+	}	
 }
 
 

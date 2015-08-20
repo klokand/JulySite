@@ -11,8 +11,8 @@
 				<!--
 					<div class="logo1">LUCKY COUNTRY</div>
 				-->
-					<img class="img-responsive logo1" src="/img/logo1.png"/>
-					<img class="img-responsive logo2" src="/img/logo2.png"/>
+					<img class="logo1" src="/img/logo1.png"/>
+					<img class="logo2" src="/img/logo2.png"/>
 				</a>
             </div>
             <div class="navbar-collapse collapse">
