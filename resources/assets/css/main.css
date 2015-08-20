@@ -48,19 +48,13 @@ logo
 .logo .logo2{
 	display: inline;
 	width: auto;
-	height: 38px;
-	position: relative;
-	top: -33px;
-	left: -25px;
+	height: 29px;
 }
 	.navbar-pad-original .logo .logo1,
 .navbar-pad-original .logo .logo2{
 	display: inline;
 	width: auto;
-	height: 41px;
-	position: relative;
-	top: -33px;
-	left: -25px;
+	height: 29px;
 	}	
 }
 
