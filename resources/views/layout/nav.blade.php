@@ -7,8 +7,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('/')}}">
+                <a class="navbar-brand logo" href="{{url('/')}}">
+				<!--
 					<div class="logo1">LUCKY COUNTRY</div>
+				-->
+					<img class="img-responsive logo1" src="/img/logo1.png"/>
+					<img class="img-responsive logo2" src="/img/logo2.png"/>
 				</a>
             </div>
             <div class="navbar-collapse collapse">

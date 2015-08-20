@@ -663,6 +663,50 @@
 /*-----------
 	Genereal style
 ---------*/
+
+/*---
+logo
+---*/
+.logo .logo1,
+.logo .logo2{
+	display: inline;
+	width: auto;
+	height: 48px;
+	position: relative;
+	top: -10px;
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+	.logo .logo1,
+.logo .logo2{
+	display: inline;
+	width: auto;
+	height: 29px;
+	position: relative;
+	top: -2px;
+	left: 0px;
+}
+	.navbar-pad-original .logo .logo1,
+.navbar-pad-original .logo .logo2{
+	display: inline;
+	width: auto;
+	height: 44px;
+	position: relative;
+	top: -10px;
+	left: 15px;
+	}	
+}
+
+.navbar-pad-original .logo .logo1,
+.navbar-pad-original .logo .logo2{
+	display: inline;
+	width: auto;
+	height: 44px;
+	position: relative;
+	top: -10px;
+	left: 15px;
+}
+
+
 body {
     font-family: 'Open Sans', sans-serif;
    
