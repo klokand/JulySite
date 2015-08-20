@@ -2,12 +2,12 @@
              <div class="container">
              <div class="row text-center">
 				<div class="col-md-4 project">
-                 <a href="{{url('properties/All')}}"><img src="/img/project1.jpg"></img>
+                 <a href="{{url('development')}}"><img src="/img/project1.jpg"></img>
                             <h4> <strong>Redevelopment</strong> </h4>
                             <p>
                                 Thinking to buy a old house, pull it down and build a couple of either town houses, units or apartments, our expertise will be beneficial...
                             </p>
-                       <a href="{{url('properties/All')}}" class="btn btn-primary" >Read Details</a> 
+                       <a href="{{url('development')}}" class="btn btn-primary" >Read Details</a> 
 				</a>
 				</div>
 				<div class="col-md-4 project">
