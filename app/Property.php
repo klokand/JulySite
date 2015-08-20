@@ -20,7 +20,7 @@ class Property extends Model {
 		'garageCarNo'	=> 'required|digits:1',
 		'landSize'	=> 'required|min:1',
 		'buildingSize'	=> 'required|min:1',
-		'pdf' =>'sometimes|mimes:pdf',
+		'pdf' =>'sometimes|mimes:pdf|max:3000',
 		'description' =>'required|min:2'
 	);
 	
