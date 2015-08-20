@@ -1,7 +1,7 @@
 @extends('admin.layout.admin')
 @section('content')
 
-{!!Form::open(['url'=>'createProperty','method'=>'post'])!!}
+{!!Form::open(['url'=>'createProperty','method'=>'post','files' => true])!!}
 <input name="propertyId" type="hidden" value={{$id}}>
 <div class="form-group">
 {!!Form::text('name',Input::get('name'),['class'=>'form-control','placeholder'=>'Name'])!!}
@@ -34,6 +34,11 @@
 
 <div class="form-group">
 {!!Form::text('buildingSize',Input::get('buildingSize'),['class'=>'form-control','placeholder'=>'Building Size'])!!}
+</div>
+
+<div class="form-group">
+<label for="pdf">PDF:</label>
+{!! Form::file('pdf', ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">	{!!Form::textArea('description',Input::get('description'),['id'=>'description-textarea','class'=>'form-control','placeholder'=>'description'])!!}

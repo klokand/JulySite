@@ -1,7 +1,7 @@
 @extends('admin.layout.admin')
 @section('content')
 
-{!!Form::model($property,['route'=>'property.edit','method'=>'post',$property->id])!!}
+{!!Form::model($property,['route'=>'property.edit','method'=>'post',$property->id,'files' => true])!!}
 <input name="propertyId" type="hidden" value={{$property->id}}>
 <div class="form-group">
 {!!Form::text('name',Input::get('name'),['class'=>'form-control','placeholder'=>'Name'])!!}
@@ -37,6 +37,10 @@
 
 <div class="form-group">
 {!!Form::text('buildingSize',Input::get('buildingSize'),['class'=>'form-control','placeholder'=>'Building Size'])!!}
+</div>
+<div class="form-group">
+<label for="pdf">PDF: <a href="{{asset('uploads/pdf/'.$property->pdf)}}" download>{{$property->pdf}}</a></label>
+{!! Form::file('pdf', ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">	{!!Form::textArea('description',Input::get('description'),['id'=>'description-textarea','class'=>'form-control','placeholder'=>'description'])!!}

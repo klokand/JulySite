@@ -117,8 +117,14 @@ class PropertyController extends Controller {
 			$property->buildingSize =Input::get('buildingSize');
 			$property->description =Input::get('descriptionHTML');
 			$property->createUserId =Input::get('createUserId');
+			if (Input::hasFile('pdf'))
+			{
+				$name = Input::file('pdf')->getClientOriginalName();
+				Input::file('pdf')->move('uploads\pdf',$name);
+				$property->pdf = $name;
+			}
 			$property->save();
-			return view('admin.createPropertyImages')->with(['pageName'=>'Create Property Step2/2(Final)','id'=>$id]);
+			return view('admin.createPropertyImages')->with(['pageName'=>'Update Property Step2/2(Final)','id'=>$id]);
 			}else{
 			$error = $validation->errors()->first();
 			$oldId = Input::get('propertyId');
@@ -145,6 +151,11 @@ class PropertyController extends Controller {
 					return Redirect::route('propertiesTable');
 				}
 			}else{
+			if (Input::hasFile('pdf'))
+			{
+				$name = Input::file('pdf')->getClientOriginalName();
+				Input::file('pdf')->move('uploads\pdf',$name);
+			}
 			Property::create(array(
 			'id'=>Input::get('propertyId'),
             'name' => Input::get('name'),
@@ -157,7 +168,8 @@ class PropertyController extends Controller {
 			'landSize'=>Input::get('landSize'),
 			'buildingSize'=>Input::get('buildingSize'),
 			'description'=>Input::get('descriptionHTML'),
-			'createUserId'=>Input::get('createUserId')
+			'createUserId'=>Input::get('createUserId'),
+			'pdf'=>$name
 			));
 			return view('admin.createPropertyImages')->with(['pageName'=>'Update Property Step2/2(Final)','id'=>$id]);
 			}

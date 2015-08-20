@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model {
 
-	protected $fillable = array('id','name','type','address','price','state','bedNo','bathNo','garageCarNo','landSize','buildingSize','floorPlan','summary','description','featureList','createUserId','coverImage');
+	protected $fillable = array('id','name','type','address','price','state','bedNo','bathNo','garageCarNo','landSize','buildingSize','floorPlan','summary','pdf','description','featureList','createUserId','coverImage');
 
 	public function propertyImages(){
 		return $this->hasMany('App\PropertyImage');
@@ -20,6 +20,7 @@ class Property extends Model {
 		'garageCarNo'	=> 'required|digits:1',
 		'landSize'	=> 'required|min:1',
 		'buildingSize'	=> 'required|min:1',
+		'pdf' =>'sometimes|mimes:pdf',
 		'description' =>'required|min:2'
 	);
 	

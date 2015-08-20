@@ -23,14 +23,18 @@
 					<span class="list-detail-icon icon-shower">{!!$property->bathNo!!}</span>
 					<span class="list-detail-icon icon-garage">{!!$property->garageCarNo!!}</span>
 					<div class="description">
+					@if($property->pdf!=null)
+					<a href="{{asset('uploads/pdf/'.$property->pdf)}}" download><i class="fa fa-file-pdf-o fa-2x"></i>Floor-plan_download</a>
+					@endif
 					{!!$property->summary!!}
 					<br/>
 					{!!$property->description!!}
 					 <br>
-</div>
+				</div>
 			<div class="feature">
 				{!!$property->featureList!!}
-				</div>
+			</div>
+			
 			 </div>
 
         </div>
